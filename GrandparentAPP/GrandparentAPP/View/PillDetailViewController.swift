@@ -9,7 +9,11 @@
 import UIKit
 
 class PillDetailViewController: UIViewController {
-
+    @IBOutlet weak var ndcNumberLbl: UITextField!
+    @IBOutlet weak var dosageTypeLbl: UITextField!
+    @IBOutlet weak var endDateLbl: UITextField!
+    @IBOutlet weak var productNameLbl: UITextField!
+    
     @IBOutlet weak var circularImage: UIImageView!
     
     override func viewDidLoad() {
@@ -20,6 +24,15 @@ class PillDetailViewController: UIViewController {
         circularImage.layer.masksToBounds = true
         circularImage.layer.cornerRadius = circularImage.bounds.width / 2
     }
+    
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+           if let packaging = (segue.source as? SearchMedsTableViewController)?.selectedPackaging {
+            ndcNumberLbl.text = packaging.product_ndc
+            dosageTypeLbl.text = packaging.dosage_form
+            productNameLbl.text = packaging.generic_name
+           }
+       }
     
 
     /*

@@ -12,6 +12,10 @@
 		3F39611323CE1578008938A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611123CE1578008938A0 /* Main.storyboard */; };
 		3F39611523CE157B008938A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611423CE157B008938A0 /* Assets.xcassets */; };
 		3F39611823CE157B008938A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611623CE157B008938A0 /* LaunchScreen.storyboard */; };
+		3FC2120B23DF30FD00288428 /* MedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */; };
+		3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */; };
+		3FC2121323DF31E800288428 /* MedURLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2121223DF31E800288428 /* MedURLController.swift */; };
+		3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2121423DF31EC00288428 /* NetworkController.swift */; };
 		ED94FB5B23D9ED210037619D /* LoadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB5A23D9ED210037619D /* LoadViewController.swift */; };
 		ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6323D9FFCC0037619D /* GradientBackground.swift */; };
 		ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */; };
@@ -26,6 +30,10 @@
 		3F39611423CE157B008938A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F39611723CE157B008938A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F39611923CE157B008938A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsTableViewCell.swift; sourceTree = "<group>"; };
+		3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMedsTableViewController.swift; sourceTree = "<group>"; };
+		3FC2121223DF31E800288428 /* MedURLController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedURLController.swift; sourceTree = "<group>"; };
+		3FC2121423DF31EC00288428 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		ED94FB5A23D9ED210037619D /* LoadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadViewController.swift; sourceTree = "<group>"; };
 		ED94FB6323D9FFCC0037619D /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxViewController.swift; sourceTree = "<group>"; };
@@ -62,17 +70,34 @@
 		3F39610A23CE1578008938A0 /* GrandparentAPP */ = {
 			isa = PBXGroup;
 			children = (
+				3FC2121123DF31CF00288428 /* APIFolder */,
+				3FC2121023DF31C100288428 /* New Group */,
 				3F39610B23CE1578008938A0 /* AppDelegate.swift */,
 				3F39610D23CE1578008938A0 /* SceneDelegate.swift */,
 				ED94FB6023D9FF8D0037619D /* Model */,
 				ED94FB6123D9FF950037619D /* View */,
-				ED94FB6223D9FF9B0037619D /* Controller */,
 				3F39611123CE1578008938A0 /* Main.storyboard */,
+				3FC2121423DF31EC00288428 /* NetworkController.swift */,
+				3FC2121223DF31E800288428 /* MedURLController.swift */,
 				3F39611423CE157B008938A0 /* Assets.xcassets */,
 				3F39611623CE157B008938A0 /* LaunchScreen.storyboard */,
 				3F39611923CE157B008938A0 /* Info.plist */,
 			);
 			path = GrandparentAPP;
+			sourceTree = "<group>";
+		};
+		3FC2121023DF31C100288428 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+		3FC2121123DF31CF00288428 /* APIFolder */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = APIFolder;
 			sourceTree = "<group>";
 		};
 		ED94FB6023D9FF8D0037619D /* Model */ = {
@@ -89,15 +114,10 @@
 				ED94FB5A23D9ED210037619D /* LoadViewController.swift */,
 				ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */,
 				ED94FB6723DA03E10037619D /* PillDetailViewController.swift */,
+				3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */,
+				3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		ED94FB6223D9FF9B0037619D /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,11 +191,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */,
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
 				ED94FB5B23D9ED210037619D /* LoadViewController.swift in Sources */,
 				ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */,
+				3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */,
+				3FC2121323DF31E800288428 /* MedURLController.swift in Sources */,
 				ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */,
 				3F39610C23CE1578008938A0 /* AppDelegate.swift in Sources */,
+				3FC2120B23DF30FD00288428 /* MedsTableViewCell.swift in Sources */,
 				3F39610E23CE1578008938A0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
