@@ -20,6 +20,7 @@
 		ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6323D9FFCC0037619D /* GradientBackground.swift */; };
 		ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */; };
 		ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6723DA03E10037619D /* PillDetailViewController.swift */; };
+		EDB0830423DF3F7000CAD2B3 /* PillDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		ED94FB6323D9FFCC0037619D /* GradientBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientBackground.swift; sourceTree = "<group>"; };
 		ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxViewController.swift; sourceTree = "<group>"; };
 		ED94FB6723DA03E10037619D /* PillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetailViewController.swift; sourceTree = "<group>"; };
+		EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,15 +72,12 @@
 		3F39610A23CE1578008938A0 /* GrandparentAPP */ = {
 			isa = PBXGroup;
 			children = (
-				3FC2121123DF31CF00288428 /* APIFolder */,
-				3FC2121023DF31C100288428 /* New Group */,
 				3F39610B23CE1578008938A0 /* AppDelegate.swift */,
 				3F39610D23CE1578008938A0 /* SceneDelegate.swift */,
 				ED94FB6023D9FF8D0037619D /* Model */,
 				ED94FB6123D9FF950037619D /* View */,
+				EDB0830223DF3DF400CAD2B3 /* Controllers */,
 				3F39611123CE1578008938A0 /* Main.storyboard */,
-				3FC2121423DF31EC00288428 /* NetworkController.swift */,
-				3FC2121223DF31E800288428 /* MedURLController.swift */,
 				3F39611423CE157B008938A0 /* Assets.xcassets */,
 				3F39611623CE157B008938A0 /* LaunchScreen.storyboard */,
 				3F39611923CE157B008938A0 /* Info.plist */,
@@ -86,24 +85,11 @@
 			path = GrandparentAPP;
 			sourceTree = "<group>";
 		};
-		3FC2121023DF31C100288428 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
-		3FC2121123DF31CF00288428 /* APIFolder */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = APIFolder;
-			sourceTree = "<group>";
-		};
 		ED94FB6023D9FF8D0037619D /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				ED94FB6323D9FFCC0037619D /* GradientBackground.swift */,
+				EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -118,6 +104,15 @@
 				3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EDB0830223DF3DF400CAD2B3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				3FC2121223DF31E800288428 /* MedURLController.swift */,
+				3FC2121423DF31EC00288428 /* NetworkController.swift */,
+			);
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +190,7 @@
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
 				ED94FB5B23D9ED210037619D /* LoadViewController.swift in Sources */,
 				ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */,
+				EDB0830423DF3F7000CAD2B3 /* PillDetail.swift in Sources */,
 				3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */,
 				3FC2121323DF31E800288428 /* MedURLController.swift in Sources */,
 				ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */,
