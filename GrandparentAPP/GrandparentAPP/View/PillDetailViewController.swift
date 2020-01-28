@@ -39,15 +39,15 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
-        
+
         guard segue.identifier == "saveUnwind" else { return }
-        
+
         let prescription = productNameLbl.text ?? ""
         let ndcNumber = ndcNumberLbl.text ?? ""
         let dosageType = dosageTypeLbl.text ?? ""
         let endDate = endDateLbl.text ?? ""
         let imageData = addPhotoButton.backgroundImage(for: .normal)
-        
+
         pill = Pill(prescription: prescription, ndcNumber: ndcNumber, dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
     }
     
@@ -100,7 +100,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            
+            pill?.imageData = selectedImage.pngData()
+            addPhotoButton.imageView?.image = selectedImage
+            dismiss(animated: true) {
+                self.updateView()
+            }
+        }
     }
     
     /*
