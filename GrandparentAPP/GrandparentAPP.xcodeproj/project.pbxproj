@@ -21,6 +21,7 @@
 		ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */; };
 		ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6723DA03E10037619D /* PillDetailViewController.swift */; };
 		EDB0830423DF3F7000CAD2B3 /* PillDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */; };
+		EDB0830A23E0864000CAD2B3 /* PillBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxViewController.swift; sourceTree = "<group>"; };
 		ED94FB6723DA03E10037619D /* PillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetailViewController.swift; sourceTree = "<group>"; };
 		EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetail.swift; sourceTree = "<group>"; };
+		EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 			children = (
 				ED94FB5A23D9ED210037619D /* LoadViewController.swift */,
 				ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */,
+				EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */,
 				ED94FB6723DA03E10037619D /* PillDetailViewController.swift */,
 				3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */,
 				3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */,
@@ -192,6 +195,7 @@
 				ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */,
 				EDB0830423DF3F7000CAD2B3 /* PillDetail.swift in Sources */,
 				3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */,
+				EDB0830A23E0864000CAD2B3 /* PillBoxTableViewCell.swift in Sources */,
 				3FC2121323DF31E800288428 /* MedURLController.swift in Sources */,
 				ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */,
 				3F39610C23CE1578008938A0 /* AppDelegate.swift in Sources */,
