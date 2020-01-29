@@ -11,7 +11,7 @@ import UIKit
 class PillBoxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-    
+
     var pills: [Pill] = [] {
         didSet {
             Pill.saveToFile(pills: pills)
@@ -27,10 +27,34 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
-        tableView.delegate = self
-        tableView.dataSource = self
+//        pills.append(Pill(prescription: "Aspirin", ndcNumber: "1233", dosageType: "pill", endDate: "today"))
+     
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        tableView.reloadData()
+    }
+    
+    @IBAction func editButtonTapped(_ sender: Any) {
+        let tableViewEditingMode = tableView.isEditing
+        
+        tableView.setEditing(!tableViewEditingMode, animated: true)
+    }
+    
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            pills.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
     
     //MARK: Table View Functionality
     
@@ -68,6 +92,34 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
             Pill.saveToFile(pills: pills)
         }
     }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
+       let sourceViewController = segue.source as! PillDetailViewController
+        
+        if let pill = sourceViewController.pill {
+           if let selectedIndexPath = tableView.indexPathForSelectedRow {
+               pills[selectedIndexPath.row] = pill
+               tableView.reloadRows(at: [selectedIndexPath], with: .none)
+           } else {
+               let newIndexPath = IndexPath(row: pills.count, section: 0)
+               pills.append(pill)
+               tableView.insertRows(at: [newIndexPath], with: .automatic)
+           }
+           Pill.saveToFile(pills: pills)
+       }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if segue.identifier == "EditPill" {
+            let indexPath = tableView.indexPathForSelectedRow!
+            let pill = pills[indexPath.row]
+            let nextController = segue.destination as! PillDetailViewController
+            
+            nextController.pill = pill
+        }
+    }
+
     
 
     
