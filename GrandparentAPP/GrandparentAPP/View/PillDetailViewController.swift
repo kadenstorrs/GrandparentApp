@@ -17,6 +17,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var circularImage: UIImageView!
     
+    @IBOutlet weak var mondayBackground: UIView!
+    @IBOutlet weak var tuesdayBackground: UIView!
+    @IBOutlet weak var wednesdayBackground: UIView!
+    @IBOutlet weak var thursdayBackground: UIView!
+    @IBOutlet weak var fridayBackground: UIView!
+    @IBOutlet weak var saturdayBackground: UIView!
+    @IBOutlet weak var sundayBackground: UIView!
+    
     var pill: Pill?
     
     override func viewDidLoad() {
@@ -34,13 +42,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             productNameLbl.text = pill.prescription
         }
         updateView()
+        daysOfTheWeekBackground()
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
 
-        guard segue.identifier == "saveUnwind" else { return }
+        guard segue.identifier != "toSearch" else { return }
 
         let prescription = productNameLbl.text ?? ""
         let ndcNumber = ndcNumberLbl.text ?? ""
@@ -50,7 +59,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
 
         pill = Pill(prescription: prescription, ndcNumber: ndcNumber, dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
     }
-    
+
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         if let packaging = (segue.source as? SearchMedsTableViewController)?.selectedPackaging {
             ndcNumberLbl.text = packaging.product_ndc
@@ -108,6 +117,38 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 self.updateView()
             }
         }
+    }
+    
+    func daysOfTheWeekBackground() {
+        
+        mondayBackground.layer.cornerRadius = 35.0
+        mondayBackground.clipsToBounds = true
+        mondayBackground.alpha = 0.0
+        
+        tuesdayBackground.layer.cornerRadius = 35.0
+        tuesdayBackground.clipsToBounds = true
+        tuesdayBackground.alpha = 0.0
+        
+        wednesdayBackground.layer.cornerRadius = 35.0
+        wednesdayBackground.clipsToBounds = true
+        wednesdayBackground.alpha = 0.0
+        
+        thursdayBackground.layer.cornerRadius = 35.0
+        thursdayBackground.clipsToBounds = true
+        thursdayBackground.alpha = 0.0
+        
+        fridayBackground.layer.cornerRadius = 35.0
+        fridayBackground.clipsToBounds = true
+        fridayBackground.alpha = 0.0
+        
+        saturdayBackground.layer.cornerRadius = 35.0
+        saturdayBackground.clipsToBounds = true
+        saturdayBackground.alpha = 0.0
+        
+        sundayBackground.layer.cornerRadius = 35.0
+        sundayBackground.clipsToBounds = true
+        sundayBackground.alpha = 0.0
+        
     }
     
     /*

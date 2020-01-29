@@ -9,6 +9,9 @@
 import UIKit
 
 class PillBoxTableViewCell: UITableViewCell {
+    
+    var pill: Pill?
+    var checkTapped = false
 
     @IBOutlet weak var checkMarkButton: UIButton!
     @IBOutlet weak var prescriptionLabel: UILabel!
@@ -32,4 +35,15 @@ class PillBoxTableViewCell: UITableViewCell {
             photoImageView.image = UIImage(data: photo)
         }
     }
+    
+    @IBAction func checkMarkButtonTapped(_ sender: Any) {
+        if self.checkTapped == false {
+            checkMarkButton.setImage(UIImage(named: "checkCircle"), for: .normal)
+            self.checkTapped = true
+        } else {
+            checkMarkButton.setImage(UIImage(named: "emptyCircle"), for: .normal)
+            self.checkTapped = false
+        }
+    }
+    
 }
