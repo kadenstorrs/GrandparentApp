@@ -10,6 +10,7 @@ import UIKit
 
 class PillDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeLbl: UITextField!
     @IBOutlet weak var endDateLbl: UITextField!
@@ -17,13 +18,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var circularImage: UIImageView!
     
-    @IBOutlet weak var mondayBackground: UIView!
-    @IBOutlet weak var tuesdayBackground: UIView!
-    @IBOutlet weak var wednesdayBackground: UIView!
-    @IBOutlet weak var thursdayBackground: UIView!
-    @IBOutlet weak var fridayBackground: UIView!
-    @IBOutlet weak var saturdayBackground: UIView!
-    @IBOutlet weak var sundayBackground: UIView!
     
     var pill: Pill?
     
@@ -40,10 +34,15 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             dosageTypeLbl.text = pill.dosageType
             endDateLbl.text = pill.endDate
             productNameLbl.text = pill.prescription
+           
         }
         updateView()
-        daysOfTheWeekBackground()
+        
     }
+    
+    
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -117,38 +116,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 self.updateView()
             }
         }
-    }
-    
-    func daysOfTheWeekBackground() {
-        
-        mondayBackground.layer.cornerRadius = 35.0
-        mondayBackground.clipsToBounds = true
-        mondayBackground.alpha = 0.0
-        
-        tuesdayBackground.layer.cornerRadius = 35.0
-        tuesdayBackground.clipsToBounds = true
-        tuesdayBackground.alpha = 0.0
-        
-        wednesdayBackground.layer.cornerRadius = 35.0
-        wednesdayBackground.clipsToBounds = true
-        wednesdayBackground.alpha = 0.0
-        
-        thursdayBackground.layer.cornerRadius = 35.0
-        thursdayBackground.clipsToBounds = true
-        thursdayBackground.alpha = 0.0
-        
-        fridayBackground.layer.cornerRadius = 35.0
-        fridayBackground.clipsToBounds = true
-        fridayBackground.alpha = 0.0
-        
-        saturdayBackground.layer.cornerRadius = 35.0
-        saturdayBackground.clipsToBounds = true
-        saturdayBackground.alpha = 0.0
-        
-        sundayBackground.layer.cornerRadius = 35.0
-        sundayBackground.clipsToBounds = true
-        sundayBackground.alpha = 0.0
-        
     }
     
     /*

@@ -17,6 +17,7 @@ struct Pill: Codable {
     var endDate: String
     var imageData: Data?
     
+    
     init(prescription: String, ndcNumber: String, dosageType: String, endDate: String, imageData: Data? = nil) {
         self.prescription = prescription
         self.ndcNumber = ndcNumber
