@@ -68,6 +68,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         let pill = pills[indexPath.row]
         
         cell.update(with: pill)
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
