@@ -10,12 +10,14 @@ import UIKit
 
 class PillDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
+    
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeLbl: UITextField!
     @IBOutlet weak var endDateLbl: UITextField!
     @IBOutlet weak var productNameLbl: UITextField!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var circularImage: UIImageView!
+    
     
     var pill: Pill?
     
@@ -32,15 +34,21 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             dosageTypeLbl.text = pill.dosageType
             endDateLbl.text = pill.endDate
             productNameLbl.text = pill.prescription
+           
         }
         updateView()
+        
     }
+    
+    
+    
+    
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
 
-        guard segue.identifier == "saveUnwind" else { return }
+        guard segue.identifier != "toSearch" else { return }
 
         let prescription = productNameLbl.text ?? ""
         let ndcNumber = ndcNumberLbl.text ?? ""
@@ -50,7 +58,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
 
         pill = Pill(prescription: prescription, ndcNumber: ndcNumber, dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
     }
-    
+
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         if let packaging = (segue.source as? SearchMedsTableViewController)?.selectedPackaging {
             ndcNumberLbl.text = packaging.product_ndc

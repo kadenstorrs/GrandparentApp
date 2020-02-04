@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 
 struct Pill: Codable {
@@ -15,6 +16,7 @@ struct Pill: Codable {
     var dosageType: String
     var endDate: String
     var imageData: Data?
+    
     
     init(prescription: String, ndcNumber: String, dosageType: String, endDate: String, imageData: Data? = nil) {
         self.prescription = prescription
