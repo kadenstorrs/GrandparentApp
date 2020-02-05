@@ -13,14 +13,16 @@ import UIKit
 struct Pill: Codable {
     var prescription: String
     var ndcNumber: String
+    var timeOfDay: String
     var dosageType: String
     var endDate: String
     var imageData: Data?
     
     
-    init(prescription: String, ndcNumber: String, dosageType: String, endDate: String, imageData: Data? = nil) {
+    init(prescription: String, ndcNumber: String, timeOfDay: String, dosageType: String, endDate: String, imageData: Data? = nil) {
         self.prescription = prescription
         self.ndcNumber = ndcNumber
+        self.timeOfDay = timeOfDay
         self.dosageType = dosageType
         self.endDate = endDate
         self.imageData = imageData

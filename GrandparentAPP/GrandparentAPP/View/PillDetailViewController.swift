@@ -7,16 +7,18 @@
 //
 
 import UIKit
+import UserNotifications
 
 class PillDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    
+    let picker1 = UIDatePicker()
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeLbl: UITextField!
     @IBOutlet weak var endDateLbl: UITextField!
     @IBOutlet weak var productNameLbl: UITextField!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var circularImage: UIImageView!
+    @IBOutlet weak var timeOfDayTxt: UITextField!
     
     
     var pill: Pill?
@@ -29,6 +31,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         circularImage.layer.masksToBounds = true
         circularImage.layer.cornerRadius = circularImage.bounds.width / 2
         
+        createPickerView()
+        createToolbar()
+        
+        timeOfDayTxt.delegate = self as? UITextFieldDelegate
+        timeOfDayTxt.keyboardType = .numberPad
+        picker1.addTarget(self, action: #selector(PillDetailViewController.datePickerValueChanged), for: UIControl.Event.valueChanged)
+        
+        
         if let pill = pill {
             ndcNumberLbl.text = pill.ndcNumber
             dosageTypeLbl.text = pill.dosageType
@@ -40,7 +50,73 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    @objc func datePickerValueChanged(sender:UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        dateFormatter.amSymbol = "a"
+        dateFormatter.pmSymbol = "p"
+        timeOfDayTxt.text = dateFormatter.string(from: sender.date)
+    }
     
+    func createPickerView() {
+        
+        timeOfDayTxt.inputView = picker1
+        picker1.backgroundColor = UIColor.lightGray
+        picker1.datePickerMode = .time
+        
+    }
+    
+    @IBAction func sendIt(_ sender: Any) {
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+            if !granted {
+                print("Something went wrong")
+            } else {
+                DispatchQueue.main.async {
+                    let content = UNMutableNotificationContent()
+                    content.title = "Time to take your medicane"
+                    content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDateLbl.text!))"
+                    content.sound = UNNotificationSound.default
+                    let calendar = Calendar.current
+                    let dateComponents = calendar.dateComponents([.hour, .minute], from: self.picker1.date)
+                    
+                    
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                    
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    center.removeAllPendingNotificationRequests()
+                    center.add(request)
+                    
+                }
+            }
+        }
+    }
+    
+    func createToolbar() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        toolbar.tintColor = UIColor.black
+        toolbar.backgroundColor = UIColor.white
+        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(PillDetailViewController.closePickerView))
+        toolbar.setItems([doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        timeOfDayTxt.inputAccessoryView = toolbar
+    }
+    
+    
+    
+    @objc func closePickerView() {
+        view.endEditing(true)
+    }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return picker1.accessibilityElementCount()
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        
+        return picker1.accessibilityElementCount()
+    }
     
     
     
@@ -52,11 +128,12 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
 
         let prescription = productNameLbl.text ?? ""
         let ndcNumber = ndcNumberLbl.text ?? ""
+        let timeOfDay = timeOfDayTxt.text ?? ""
         let dosageType = dosageTypeLbl.text ?? ""
         let endDate = endDateLbl.text ?? ""
         let imageData = addPhotoButton.backgroundImage(for: .normal)
 
-        pill = Pill(prescription: prescription, ndcNumber: ndcNumber, dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
+        pill = Pill(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay,  dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
     }
 
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
@@ -117,15 +194,4 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destination.
-     // Pass the selected object to the new view controller.
-     }
-     */
-    
 }
