@@ -12,37 +12,67 @@ import UserNotifications
 class PillDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     let picker1 = UIDatePicker()
+    let picker2 = UIDatePicker()
+    
+    @IBOutlet weak var startDay: UITextField!
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeLbl: UITextField!
-    @IBOutlet weak var endDateLbl: UITextField!
+    @IBOutlet weak var endDay: UITextField!
     @IBOutlet weak var productNameLbl: UITextField!
     @IBOutlet weak var addPhotoButton: UIButton!
     @IBOutlet weak var circularImage: UIImageView!
     @IBOutlet weak var timeOfDayTxt: UITextField!
     
+    //Buttons for the days of the week
+//    var monday: NSDateComponents
+//    var tuesday: NSDateComponents
+//    var wednesday: NSDateComponents
+//    var thursday: NSDateComponents
+//    var friday: NSDateComponents
+//    var saturday: NSDateComponents
+//    var sunday: NSDateComponents
     
     var pill: Pill?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // This lets the user tap on the screen to get the keyboard to go off
+        
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+        
+        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+     
         
         circularImage.layer.masksToBounds = true
-        circularImage.layer.cornerRadius = circularImage.bounds.width / 2
+        circularImage.layer.cornerRadius = (circularImage.bounds.width / 2)
         
         createPickerView()
         createToolbar()
+        createpickerView2()
+        createToolbar()
+        
+        UIApplication.shared.sendAction(#selector(UIApplication.resignFirstResponder), to: nil, from: nil, for: nil)
+        
         
         timeOfDayTxt.delegate = self as? UITextFieldDelegate
         timeOfDayTxt.keyboardType = .numberPad
+        picker2.addTarget(self, action: #selector(PillDetailViewController.datePickerChanged2), for: UIControl.Event.valueChanged)
         picker1.addTarget(self, action: #selector(PillDetailViewController.datePickerValueChanged), for: UIControl.Event.valueChanged)
+        
+        startDay.delegate = self as? UITextFieldDelegate
+        endDay.delegate = self as? UITextFieldDelegate
+        picker2.addTarget(self, action: #selector(PillDetailViewController.datePickerChanged2), for: UIControl.Event.valueChanged)
+        
         
         
         if let pill = pill {
             ndcNumberLbl.text = pill.ndcNumber
             dosageTypeLbl.text = pill.dosageType
-            endDateLbl.text = pill.endDate
+            endDay.text = pill.endDate
             productNameLbl.text = pill.prescription
            
         }
@@ -50,7 +80,15 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    @objc func datePickerValueChanged(sender:UIDatePicker) {
+
+    @objc func datePickerChanged2(sender: UIDatePicker) {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "YYYY-MM-DD"
+        startDay.text = dateFormatter.string(from: sender.date)
+        endDay.text = dateFormatter.string(from: sender.date)
+    }
+    
+    @objc func datePickerValueChanged(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "HH:mm"
         dateFormatter.amSymbol = "a"
@@ -66,6 +104,15 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
+    func createpickerView2() {
+        
+          endDay.inputView = picker2
+          startDay.inputView = picker2
+          picker2.backgroundColor = UIColor.lightGray
+          picker2.datePickerMode = .date
+        
+      }
+    
     @IBAction func sendIt(_ sender: Any) {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
@@ -75,13 +122,13 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 DispatchQueue.main.async {
                     let content = UNMutableNotificationContent()
                     content.title = "Time to take your medicane"
-                    content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDateLbl.text!))"
+                    content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
                     content.sound = UNNotificationSound.default
                     let calendar = Calendar.current
-                    let dateComponents = calendar.dateComponents([.hour, .minute], from: self.picker1.date)
+                    let timeComponents = calendar.dateComponents([.hour, .minute], from: self.picker1.date)
+//                    let dateComponents = calendar.dateComponents([.day], from: [mBtn.isSelected, tBtn.isSelected, wBtn.isSelected, thBtn.isSelected, fBtn.isSelected, saBtn.isSelected, suBtn.isSelected])
                     
-                    
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
                     
                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                     center.removeAllPendingNotificationRequests()
@@ -91,6 +138,10 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
     }
+    
+    
+ 
+ 
     
     func createToolbar() {
         let toolbar = UIToolbar()
@@ -103,6 +154,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         timeOfDayTxt.inputAccessoryView = toolbar
     }
     
+  
     
     
     @objc func closePickerView() {
@@ -130,7 +182,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let ndcNumber = ndcNumberLbl.text ?? ""
         let timeOfDay = timeOfDayTxt.text ?? ""
         let dosageType = dosageTypeLbl.text ?? ""
-        let endDate = endDateLbl.text ?? ""
+        let endDate = endDay.text ?? ""
         let imageData = addPhotoButton.backgroundImage(for: .normal)
 
         pill = Pill(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay,  dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
@@ -141,6 +193,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             ndcNumberLbl.text = packaging.product_ndc
             dosageTypeLbl.text = packaging.dosage_form
             productNameLbl.text = packaging.generic_name
+            timeOfDayTxt.text = packaging.timeOfDay
         }
     }
     
@@ -154,6 +207,12 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             addPhotoButton.setTitle("Add Photo", for: .normal)
             addPhotoButton.setImage(nil, for: .normal)
         }
+    }
+    
+    
+    func textFieldShouldReturn(_ textfield: UITextField) -> Bool {
+        textfield.resignFirstResponder()
+        return true
     }
     
     @IBAction func addPhotoButtonTapped(_ sender: Any) {
@@ -194,4 +253,5 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             }
         }
     }
+        
 }
