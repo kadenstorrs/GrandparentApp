@@ -13,8 +13,8 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     let picker1 = UIDatePicker()
     let picker2 = UIDatePicker()
+    var weekday = [1, 2, 3, 4, 5, 6, 7]
     
-    @IBOutlet weak var startDay: UITextField!
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeLbl: UITextField!
     @IBOutlet weak var endDay: UITextField!
@@ -24,13 +24,16 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var timeOfDayTxt: UITextField!
     
     //Buttons for the days of the week
-//    var monday: NSDateComponents
-//    var tuesday: NSDateComponents
-//    var wednesday: NSDateComponents
-//    var thursday: NSDateComponents
-//    var friday: NSDateComponents
-//    var saturday: NSDateComponents
-//    var sunday: NSDateComponents
+    @IBOutlet weak var mBtn: UIButton! // tag value is 2
+    @IBOutlet weak var tBtn: UIButton! // tag value is 3
+    @IBOutlet weak var wBtn: UIButton! // tag value is 4
+    @IBOutlet weak var thBtn: UIButton! // tag value is 5
+    @IBOutlet weak var fBtn: UIButton! // tag value is 6
+    @IBOutlet weak var saBtn: UIButton! // tag value is 7
+    @IBOutlet weak var suBtn: UIButton! // tag value is 1
+    
+    
+
     
     var pill: Pill?
     
@@ -63,7 +66,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         picker2.addTarget(self, action: #selector(PillDetailViewController.datePickerChanged2), for: UIControl.Event.valueChanged)
         picker1.addTarget(self, action: #selector(PillDetailViewController.datePickerValueChanged), for: UIControl.Event.valueChanged)
         
-        startDay.delegate = self as? UITextFieldDelegate
+       
         endDay.delegate = self as? UITextFieldDelegate
         picker2.addTarget(self, action: #selector(PillDetailViewController.datePickerChanged2), for: UIControl.Event.valueChanged)
         
@@ -84,7 +87,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @objc func datePickerChanged2(sender: UIDatePicker) {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "YYYY-MM-DD"
-        startDay.text = dateFormatter.string(from: sender.date)
         endDay.text = dateFormatter.string(from: sender.date)
     }
     
@@ -107,37 +109,240 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     func createpickerView2() {
         
           endDay.inputView = picker2
-          startDay.inputView = picker2
           picker2.backgroundColor = UIColor.lightGray
           picker2.datePickerMode = .date
         
       }
     
-    @IBAction func sendIt(_ sender: Any) {
+    
+
+    
+    
+
+    
+    @IBAction func mondayBtnTapped(_ sender: Any) {
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
             if !granted {
                 print("Something went wrong")
             } else {
                 DispatchQueue.main.async {
-                    let content = UNMutableNotificationContent()
+                    let monday = self.mBtn.tag
+                         
+                 let content = UNMutableNotificationContent()
+
                     content.title = "Time to take your medicane"
                     content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
                     content.sound = UNNotificationSound.default
                     let calendar = Calendar.current
-                    let timeComponents = calendar.dateComponents([.hour, .minute], from: self.picker1.date)
-//                    let dateComponents = calendar.dateComponents([.day], from: [mBtn.isSelected, tBtn.isSelected, wBtn.isSelected, thBtn.isSelected, fBtn.isSelected, saBtn.isSelected, suBtn.isSelected])
-                    
+                    let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                    var components = DateComponents()
+                    components.weekday = monday
+
+              
                     let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
-                    
+
                     let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
                     center.removeAllPendingNotificationRequests()
                     center.add(request)
-                    
                 }
             }
         }
     }
+    
+    @IBAction func tuesdayBtnTapped(_ sender: Any) {
+           let center = UNUserNotificationCenter.current()
+           center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+               if !granted {
+                   print("Something went wrong")
+               } else {
+                   DispatchQueue.main.async {
+                       
+                              let tuesday = self.tBtn.tag
+                           
+                       
+                    let content = UNMutableNotificationContent()
+
+                       content.title = "Time to take your medicane"
+                       content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
+                       content.sound = UNNotificationSound.default
+                       let calendar = Calendar.current
+                       let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                       var components = DateComponents()
+                       components.weekday = tuesday
+
+                 
+                       let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+
+                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                       center.removeAllPendingNotificationRequests()
+                       center.add(request)
+                   }
+               }
+           }
+       }
+    
+    @IBAction func wednesdayBtnTapped(_ sender: Any) {
+           let center = UNUserNotificationCenter.current()
+           center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+               if !granted {
+                   print("Something went wrong")
+               } else {
+                   DispatchQueue.main.async {
+                    
+                              let wednesday = self.wBtn.tag
+                             
+                       
+                    let content = UNMutableNotificationContent()
+
+                       content.title = "Time to take your medicane"
+                       content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
+                       content.sound = UNNotificationSound.default
+                       let calendar = Calendar.current
+                       let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                       var components = DateComponents()
+                       components.weekday = wednesday
+
+                 
+                       let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+
+                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                       center.removeAllPendingNotificationRequests()
+                       center.add(request)
+                   }
+               }
+           }
+       }
+       
+       @IBAction func thursdayBtnTapped(_ sender: Any) {
+              let center = UNUserNotificationCenter.current()
+              center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+                  if !granted {
+                      print("Something went wrong")
+                  } else {
+                      DispatchQueue.main.async {
+                         
+                                 let thursday = self.thBtn.tag
+                        
+                          
+                       let content = UNMutableNotificationContent()
+
+                          content.title = "Time to take your medicane"
+                          content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
+                          content.sound = UNNotificationSound.default
+                          let calendar = Calendar.current
+                          let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                          var components = DateComponents()
+                          components.weekday = thursday
+
+                    
+                          let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+
+                          let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                          center.removeAllPendingNotificationRequests()
+                          center.add(request)
+                      }
+                  }
+              }
+          }
+          
+    @IBAction func fridayBtnTapped(_ sender: Any) {
+           let center = UNUserNotificationCenter.current()
+           center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+               if !granted {
+                   print("Something went wrong")
+               } else {
+                   DispatchQueue.main.async {
+                      
+                              let friday = self.fBtn.tag
+                           
+                       
+                    let content = UNMutableNotificationContent()
+
+                       content.title = "Time to take your medicane"
+                       content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
+                       content.sound = UNNotificationSound.default
+                       let calendar = Calendar.current
+                       let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                       var components = DateComponents()
+                       components.weekday = friday
+
+                 
+                       let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+
+                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                       center.removeAllPendingNotificationRequests()
+                       center.add(request)
+                   }
+               }
+           }
+       }
+    
+    @IBAction func saturdayBtnTapped(_ sender: Any) {
+           let center = UNUserNotificationCenter.current()
+           center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+               if !granted {
+                   print("Something went wrong")
+               } else {
+                   DispatchQueue.main.async {
+                     
+                             
+                              let saturday = self.saBtn.tag
+                              
+                       
+                    let content = UNMutableNotificationContent()
+
+                       content.title = "Time to take your medicane"
+                       content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
+                       content.sound = UNNotificationSound.default
+                       let calendar = Calendar.current
+                       let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                       var components = DateComponents()
+                       components.weekday = saturday
+
+                 
+                       let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+
+                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                       center.removeAllPendingNotificationRequests()
+                       center.add(request)
+                   }
+               }
+           }
+       }
+       
+    @IBAction func sundayBtnTapped(_ sender: Any) {
+           let center = UNUserNotificationCenter.current()
+           center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
+               if !granted {
+                   print("Something went wrong")
+               } else {
+                   DispatchQueue.main.async {
+                  
+                              let sunday = self.suBtn.tag
+                       
+                    let content = UNMutableNotificationContent()
+
+                       content.title = "Time to take your medicane"
+                       content.body = "Time to take your perscription: \(String(describing: self.productNameLbl.text!)), you are scheduled to take \(String(describing: self.productNameLbl.text!)) until \(String(describing: self.endDay.text!))"
+                       content.sound = UNNotificationSound.default
+                       let calendar = Calendar.current
+                       let timeComponents = calendar.dateComponents([.weekday, .hour, .minute], from: self.picker1.date)
+                       var components = DateComponents()
+                       components.weekday = sunday
+
+                 
+                       let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+
+                       let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                       center.removeAllPendingNotificationRequests()
+                       center.add(request)
+                   }
+               }
+           }
+       }
+       
+       
     
     
  

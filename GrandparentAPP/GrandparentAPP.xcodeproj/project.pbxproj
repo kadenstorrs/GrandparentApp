@@ -12,6 +12,7 @@
 		3F39611323CE1578008938A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611123CE1578008938A0 /* Main.storyboard */; };
 		3F39611523CE157B008938A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611423CE157B008938A0 /* Assets.xcassets */; };
 		3F39611823CE157B008938A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611623CE157B008938A0 /* LaunchScreen.storyboard */; };
+		3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */; };
 		3FC2120B23DF30FD00288428 /* MedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */; };
 		3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */; };
 		3FC2121323DF31E800288428 /* MedURLController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2121223DF31E800288428 /* MedURLController.swift */; };
@@ -32,6 +33,7 @@
 		3F39611423CE157B008938A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3F39611723CE157B008938A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F39611923CE157B008938A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
 		3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsTableViewCell.swift; sourceTree = "<group>"; };
 		3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchMedsTableViewController.swift; sourceTree = "<group>"; };
 		3FC2121223DF31E800288428 /* MedURLController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedURLController.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				ED94FB6323D9FFCC0037619D /* GradientBackground.swift */,
 				EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */,
+				3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */,
+				3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */,
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
 				ED94FB5B23D9ED210037619D /* LoadViewController.swift in Sources */,
 				ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */,
