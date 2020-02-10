@@ -13,6 +13,7 @@ struct Meds: Codable {
 }
 
 struct Packaging: Codable {
+    var timeOfDay: String
     var generic_name: String
     var product_ndc: String
     var dosage_form: String
