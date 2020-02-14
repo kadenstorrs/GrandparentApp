@@ -11,19 +11,22 @@ import UIKit
 class PillBoxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet weak var tableView: UITableView!
-
-    var pills: [Pill] = [] {
-        didSet {
-            Pill.saveToFile(pills: pills)
-        }
-    }
+    
+    var pills: [Pills] = []
+    
+//
+//    var pills: [Pill] = [] {
+//        didSet {
+//            Pill.saveToFile(pills: pills)
+//        }
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let savedPills = Pill.loadFromFile() {
-            pills = savedPills
-        }
+//        if let savedPills = Pill.loadFromFile() {
+//            pills = savedPills
+//        }
         
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
@@ -90,7 +93,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                 pills.append(pill)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
-            Pill.saveToFile(pills: pills)
+//            Pill.saveToFile(pills: pills)
         }
     }
     
@@ -106,7 +109,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                pills.append(pill)
                tableView.insertRows(at: [newIndexPath], with: .automatic)
            }
-           Pill.saveToFile(pills: pills)
+//           Pill.saveToFile(pills: pills)
        }
     }
     

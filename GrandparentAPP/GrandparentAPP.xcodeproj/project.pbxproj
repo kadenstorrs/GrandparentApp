@@ -23,6 +23,11 @@
 		ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6723DA03E10037619D /* PillDetailViewController.swift */; };
 		EDB0830423DF3F7000CAD2B3 /* PillDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */; };
 		EDB0830A23E0864000CAD2B3 /* PillBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */; };
+		EDD6E1B823F45F7600954E96 /* GrandparentApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1B623F45F7600954E96 /* GrandparentApp.xcdatamodeld */; };
+		EDD6E1BB23F469D600954E96 /* Pill+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1B923F469D600954E96 /* Pill+CoreDataClass.swift */; };
+		EDD6E1BC23F469D600954E96 /* Pill+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BA23F469D600954E96 /* Pill+CoreDataProperties.swift */; };
+		EDD6E1BE23F46C6000954E96 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BD23F46C6000954E96 /* Stack.swift */; };
+		EDD6E1C023F59A2700954E96 /* PillsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BF23F59A2700954E96 /* PillsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +49,11 @@
 		ED94FB6723DA03E10037619D /* PillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetailViewController.swift; sourceTree = "<group>"; };
 		EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetail.swift; sourceTree = "<group>"; };
 		EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxTableViewCell.swift; sourceTree = "<group>"; };
+		EDD6E1B723F45F7600954E96 /* GrandparentApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrandparentApp.xcdatamodel; sourceTree = "<group>"; };
+		EDD6E1B923F469D600954E96 /* Pill+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pill+CoreDataClass.swift"; sourceTree = "<group>"; };
+		EDD6E1BA23F469D600954E96 /* Pill+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pill+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EDD6E1BD23F46C6000954E96 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
+		EDD6E1BF23F59A2700954E96 /* PillsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,9 +102,13 @@
 		ED94FB6023D9FF8D0037619D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				ED94FB6323D9FFCC0037619D /* GradientBackground.swift */,
+				EDD6E1B923F469D600954E96 /* Pill+CoreDataClass.swift */,
+				EDD6E1BA23F469D600954E96 /* Pill+CoreDataProperties.swift */,
+				EDD6E1B623F45F7600954E96 /* GrandparentApp.xcdatamodeld */,
+				EDD6E1BD23F46C6000954E96 /* Stack.swift */,
 				EDB0830323DF3F7000CAD2B3 /* PillDetail.swift */,
 				3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */,
+				ED94FB6323D9FFCC0037619D /* GradientBackground.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -117,6 +131,7 @@
 			children = (
 				3FC2121223DF31E800288428 /* MedURLController.swift */,
 				3FC2121423DF31EC00288428 /* NetworkController.swift */,
+				EDD6E1BF23F59A2700954E96 /* PillsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -192,13 +207,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EDD6E1C023F59A2700954E96 /* PillsController.swift in Sources */,
 				3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */,
 				3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */,
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
+				EDD6E1BE23F46C6000954E96 /* Stack.swift in Sources */,
 				ED94FB5B23D9ED210037619D /* LoadViewController.swift in Sources */,
+				EDD6E1BC23F469D600954E96 /* Pill+CoreDataProperties.swift in Sources */,
+				EDD6E1B823F45F7600954E96 /* GrandparentApp.xcdatamodeld in Sources */,
 				ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */,
 				EDB0830423DF3F7000CAD2B3 /* PillDetail.swift in Sources */,
 				3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */,
+				EDD6E1BB23F469D600954E96 /* Pill+CoreDataClass.swift in Sources */,
 				EDB0830A23E0864000CAD2B3 /* PillBoxTableViewCell.swift in Sources */,
 				3FC2121323DF31E800288428 /* MedURLController.swift in Sources */,
 				ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */,
@@ -367,13 +387,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = T3ZR4UN5F8;
 				INFOPLIST_FILE = GrandparentAPP/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com-kadenstorrs.GrandparentAPP";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Ella.GrandparentAPP;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -402,6 +422,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EDD6E1B623F45F7600954E96 /* GrandparentApp.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EDD6E1B723F45F7600954E96 /* GrandparentApp.xcdatamodel */,
+			);
+			currentVersion = EDD6E1B723F45F7600954E96 /* GrandparentApp.xcdatamodel */;
+			path = GrandparentApp.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3F39610023CE1578008938A0 /* Project object */;
 }
