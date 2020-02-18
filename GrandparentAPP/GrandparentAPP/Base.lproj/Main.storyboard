@@ -433,7 +433,6 @@
                         <outlet property="ndcNumberLbl" destination="QfB-EP-aU5" id="mPC-qD-mKu"/>
                         <outlet property="productNameLbl" destination="BIx-KW-5He" id="U4w-Uf-AKJ"/>
                         <outlet property="saBtn" destination="Rui-4X-Rir" id="zY4-lQ-ylt"/>
-                        <outlet property="saveButton" destination="AQB-Cs-VAU" id="rCG-RM-rQi"/>
                         <outlet property="suBtn" destination="POR-rm-Fpv" id="IDf-Hw-rj6"/>
                         <outlet property="tBtn" destination="6Is-am-GzO" id="6eD-Te-C1Q"/>
                         <outlet property="thBtn" destination="vSD-bV-xlI" id="f0j-E1-KXY"/>
