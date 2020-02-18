@@ -31,6 +31,7 @@ class PillBoxTableViewCell: UITableViewCell {
     
     func update(with pill: Pill) {
         prescriptionLabel.text = pill.prescription
+        timeOfDayLabel.text = pill.timeOfDay
         if let photo = pill.imageData {
             photoImageView.image = UIImage(data: photo)
         }

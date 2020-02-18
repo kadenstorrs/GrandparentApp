@@ -77,6 +77,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             dosageTypeLbl.text = pill.dosageType
             endDay.text = pill.endDate
             productNameLbl.text = pill.prescription
+            timeOfDayTxt.text = pill.timeOfDay
            
         }
         updateView()
@@ -398,7 +399,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             ndcNumberLbl.text = packaging.product_ndc
             dosageTypeLbl.text = packaging.dosage_form
             productNameLbl.text = packaging.generic_name
-            timeOfDayTxt.text = packaging.timeOfDay
+//            timeOfDayTxt.text = packaging.timeOfDay
         }
     }
     
