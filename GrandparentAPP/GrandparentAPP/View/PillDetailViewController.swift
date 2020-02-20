@@ -24,7 +24,8 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var circularImage: UIImageView!
     @IBOutlet weak var timeOfDayTxt: UITextField!
     
-    //Buttons for the days of the week
+  //notification outlets buttons v
+    
     @IBOutlet weak var mBtn: UIButton! // tag value is 2
     @IBOutlet weak var tBtn: UIButton! // tag value is 3
     @IBOutlet weak var wBtn: UIButton! // tag value is 4
@@ -33,13 +34,136 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var saBtn: UIButton! // tag value is 7
     @IBOutlet weak var suBtn: UIButton! // tag value is 1
     
-    
+  //notification outlets buttons ^
+    //Outlets for the days of the week v
 
+    @IBOutlet weak var sundayOpenView: UIView!
+    @IBOutlet weak var sundayOpenSubView: UIView!
+    @IBOutlet weak var sundayCloseView: UIView!
+    @IBOutlet weak var sundayBoxView: UIView!
+    
+    @IBOutlet weak var mondayOpenView: UIView!
+    @IBOutlet weak var mondayOpenSubView: UIView!
+    @IBOutlet weak var mondayCloseView: UIView!
+    @IBOutlet weak var mondayBoxView: UIView!
+    
+    @IBOutlet weak var tuesdayOpenView: UIView!
+    @IBOutlet weak var tuesdayOpenSubView: UIView!
+    @IBOutlet weak var tuesdayCloseView: UIView!
+    @IBOutlet weak var tuesdayBoxView: UIView!
+    
+    @IBOutlet weak var wednesdayOpenView: UIView!
+    @IBOutlet weak var wednesdayOpenSubView: UIView!
+    @IBOutlet weak var wednesdayCloseView: UIView!
+    @IBOutlet weak var wednesdayBoxView: UIView!
+    
+    @IBOutlet weak var thursdayOpenView: UIView!
+    @IBOutlet weak var thursdayOpenSubView: UIView!
+    @IBOutlet weak var thursdayCloseView: UIView!
+    @IBOutlet weak var thursdayBoxView: UIView!
+    
+    @IBOutlet weak var fridayOpenView: UIView!
+    @IBOutlet weak var fridayOpenSubView: UIView!
+    @IBOutlet weak var fridayCloseView: UIView!
+    @IBOutlet weak var fridayBoxView: UIView!
+    
+    @IBOutlet weak var saturdayOpenView: UIView!
+    @IBOutlet weak var saturdayOpenSubView: UIView!
+    @IBOutlet weak var saturdayCloseView: UIView!
+    @IBOutlet weak var saturdayBoxView: UIView!
+    
+    //Outlets for the days of the week ^
     
     var pill: Pills?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+ 
+    //round corners v
+        
+             sundayOpenView.layer.cornerRadius = 10
+             sundayCloseView.layer.cornerRadius = 10
+             sundayOpenSubView.layer.cornerRadius = 10
+             
+             mondayOpenView.layer.cornerRadius = 10
+             mondayCloseView.layer.cornerRadius = 10
+             mondayOpenSubView.layer.cornerRadius = 10
+             
+             tuesdayOpenView.layer.cornerRadius = 10
+             tuesdayCloseView.layer.cornerRadius = 10
+             tuesdayOpenSubView.layer.cornerRadius = 10
+             
+             wednesdayOpenView.layer.cornerRadius = 10
+             wednesdayCloseView.layer.cornerRadius = 10
+             wednesdayOpenSubView.layer.cornerRadius = 10
+             
+             thursdayOpenView.layer.cornerRadius = 10
+             thursdayCloseView.layer.cornerRadius = 10
+             thursdayOpenSubView.layer.cornerRadius = 10
+             
+             fridayOpenView.layer.cornerRadius = 10
+             fridayCloseView.layer.cornerRadius = 10
+             fridayOpenSubView.layer.cornerRadius = 10
+             
+             saturdayOpenView.layer.cornerRadius = 10
+             saturdayCloseView.layer.cornerRadius = 10
+             saturdayOpenSubView.layer.cornerRadius = 10
+             
+     //round corners ^
+             
+     //border color v
+             
+             sundayBoxView.layer.borderWidth = 2.5
+             sundayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             sundayOpenView.layer.borderWidth = 2.5
+             sundayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+                     
+             sundayCloseView.layer.borderWidth = 2.5
+             sundayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+             mondayBoxView.layer.borderWidth = 2.5
+             mondayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             mondayOpenView.layer.borderWidth = 2.5
+             mondayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             mondayCloseView.layer.borderWidth = 2.5
+             mondayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+             tuesdayBoxView.layer.borderWidth = 2.5
+             tuesdayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             tuesdayOpenView.layer.borderWidth = 2.5
+             tuesdayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             tuesdayCloseView.layer.borderWidth = 2.5
+             tuesdayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+             wednesdayBoxView.layer.borderWidth = 2.5
+             wednesdayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             wednesdayOpenView.layer.borderWidth = 2.5
+             wednesdayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             wednesdayCloseView.layer.borderWidth = 2.5
+             wednesdayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+             thursdayBoxView.layer.borderWidth = 2.5
+             thursdayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             thursdayOpenView.layer.borderWidth = 2.5
+             thursdayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             thursdayCloseView.layer.borderWidth = 2.5
+             thursdayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+             fridayBoxView.layer.borderWidth = 2.5
+             fridayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             fridayOpenView.layer.borderWidth = 2.5
+             fridayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             fridayCloseView.layer.borderWidth = 2.5
+             fridayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+             saturdayBoxView.layer.borderWidth = 2.5
+             saturdayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             saturdayOpenView.layer.borderWidth = 2.5
+             saturdayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             saturdayCloseView.layer.borderWidth = 2.5
+             saturdayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
+             
+     //border color ^
         
         if let image = circularImage.image {
             pill?.image = image.pngData()
@@ -126,9 +250,163 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
       }
     
-    
-
-    
+    //action open close v
+                
+        @IBAction func sundayBoxTapped(_ sender: Any) {
+         
+          //  sundayCloseView.isHidden = false
+            mondayCloseView.isHidden = false
+            tuesdayCloseView.isHidden = false
+            wednesdayCloseView.isHidden = false
+            thursdayCloseView.isHidden = false
+            fridayCloseView.isHidden = false
+            saturdayCloseView.isHidden = false
+            
+          //  sundayOpenView.isHidden = true
+            mondayOpenView.isHidden = true
+            tuesdayOpenView.isHidden = true
+            wednesdayOpenView.isHidden = true
+            thursdayOpenView.isHidden = true
+            fridayOpenView.isHidden = true
+            saturdayOpenView.isHidden = true
+            
+            sundayOpenView.isHidden = !sundayOpenView.isHidden
+            sundayCloseView.isHidden = !sundayCloseView.isHidden
+        }
+        
+        @IBAction func mondaydayBoxTapped(_ sender: Any) {
+            
+            sundayCloseView.isHidden = false
+          //  mondayCloseView.isHidden = false
+            tuesdayCloseView.isHidden = false
+            wednesdayCloseView.isHidden = false
+            thursdayCloseView.isHidden = false
+            fridayCloseView.isHidden = false
+            saturdayCloseView.isHidden = false
+            
+            sundayOpenView.isHidden = true
+          //  mondayOpenView.isHidden = true
+            tuesdayOpenView.isHidden = true
+            wednesdayOpenView.isHidden = true
+            thursdayOpenView.isHidden = true
+            fridayOpenView.isHidden = true
+            saturdayOpenView.isHidden = true
+            
+            mondayOpenView.isHidden = !mondayOpenView.isHidden
+            mondayCloseView.isHidden = !mondayCloseView.isHidden
+        }
+        
+        @IBAction func tuesdayBoxTapped(_ sender: Any) {
+           
+            sundayCloseView.isHidden = false
+            mondayCloseView.isHidden = false
+          // tuesdayCloseView.isHidden = false
+            wednesdayCloseView.isHidden = false
+            thursdayCloseView.isHidden = false
+            fridayCloseView.isHidden = false
+            saturdayCloseView.isHidden = false
+            sundayOpenView.isHidden = true
+            
+            mondayOpenView.isHidden = true
+          //  tuesdayOpenView.isHidden = true
+            wednesdayOpenView.isHidden = true
+            thursdayOpenView.isHidden = true
+            fridayOpenView.isHidden = true
+            saturdayOpenView.isHidden = true
+            
+            tuesdayOpenView.isHidden = !tuesdayOpenView.isHidden
+            tuesdayCloseView.isHidden = !tuesdayCloseView.isHidden
+        }
+        
+        @IBAction func wednesdayBoxTapped(_ sender: Any) {
+            
+            sundayCloseView.isHidden = false
+            mondayCloseView.isHidden = false
+            tuesdayCloseView.isHidden = false
+          //   wednesdayCloseView.isHidden = false
+            thursdayCloseView.isHidden = false
+            fridayCloseView.isHidden = false
+            saturdayCloseView.isHidden = false
+            
+            sundayOpenView.isHidden = true
+            mondayOpenView.isHidden = true
+            tuesdayOpenView.isHidden = true
+          //  wednesdayOpenView.isHidden = true
+            thursdayOpenView.isHidden = true
+            fridayOpenView.isHidden = true
+            saturdayOpenView.isHidden = true
+            
+            wednesdayOpenView.isHidden = !wednesdayOpenView.isHidden
+            wednesdayCloseView.isHidden = !wednesdayCloseView.isHidden
+        }
+        
+        @IBAction func thursdayBoxTapped(_ sender: Any) {
+            
+            sundayCloseView.isHidden = false
+            mondayCloseView.isHidden = false
+            tuesdayCloseView.isHidden = false
+            wednesdayCloseView.isHidden = false
+          //  thursdayCloseView.isHidden = false
+            fridayCloseView.isHidden = false
+            saturdayCloseView.isHidden = false
+            
+            sundayOpenView.isHidden = true
+            mondayOpenView.isHidden = true
+            tuesdayOpenView.isHidden = true
+            wednesdayOpenView.isHidden = true
+          //  thursdayOpenView.isHidden = true
+            fridayOpenView.isHidden = true
+            saturdayOpenView.isHidden = true
+            
+            thursdayOpenView.isHidden = !thursdayOpenView.isHidden
+            thursdayCloseView.isHidden = !thursdayCloseView.isHidden
+        }
+        
+        @IBAction func fridayBoxTapped(_ sender: Any) {
+            
+           sundayCloseView.isHidden = false
+           mondayCloseView.isHidden = false
+           tuesdayCloseView.isHidden = false
+           wednesdayCloseView.isHidden = false
+           thursdayCloseView.isHidden = false
+        //   fridayCloseView.isHidden = false
+           saturdayCloseView.isHidden = false
+            
+            sundayOpenView.isHidden = true
+            mondayOpenView.isHidden = true
+            tuesdayOpenView.isHidden = true
+            wednesdayOpenView.isHidden = true
+            thursdayOpenView.isHidden = true
+          //  fridayOpenView.isHidden = true
+            saturdayOpenView.isHidden = true
+            
+            fridayOpenView.isHidden = !fridayOpenView.isHidden
+            fridayCloseView.isHidden = !fridayCloseView.isHidden
+        }
+        
+        @IBAction func saturdayBoxTapped(_ sender: Any) {
+            
+            sundayCloseView.isHidden = false
+            mondayCloseView.isHidden = false
+            tuesdayCloseView.isHidden = false
+            wednesdayCloseView.isHidden = false
+            thursdayCloseView.isHidden = false
+            fridayCloseView.isHidden = false
+         //   saturdayCloseView.isHidden = false
+            
+            sundayOpenView.isHidden = true
+            mondayOpenView.isHidden = true
+            tuesdayOpenView.isHidden = true
+            wednesdayOpenView.isHidden = true
+            thursdayOpenView.isHidden = true
+            fridayOpenView.isHidden = true
+          //  saturdayOpenView.isHidden = true
+            
+            saturdayOpenView.isHidden = !saturdayOpenView.isHidden
+            saturdayCloseView.isHidden = !saturdayCloseView.isHidden
+        }
+        
+    //action open close ^
     
 
     
