@@ -210,11 +210,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				DA5808D823E1ED3E003A507D /* pillBox.swift in Sources */,
-=======
 				EDD6E1C023F59A2700954E96 /* PillsController.swift in Sources */,
->>>>>>> 2aa90ee39caa60dc95838d052226cb58a1bf158b
 				3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */,
 				3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */,
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
