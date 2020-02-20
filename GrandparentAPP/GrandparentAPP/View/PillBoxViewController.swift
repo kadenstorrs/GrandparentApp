@@ -54,9 +54,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 //round corners v
         
         sundayOpenView.layer.cornerRadius = 10
@@ -140,23 +138,10 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         saturdayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
         saturdayCloseView.layer.borderWidth = 2.5
         saturdayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
-        
 //border color ^
-        
-        if let savedPills = Pill.loadFromFile() {
-            pills = savedPills
-        }
-=======
-//        if let savedPills = Pill.loadFromFile() {
-//            pills = savedPills
-//        }
->>>>>>> 2aa90ee39caa60dc95838d052226cb58a1bf158b
-        
-=======
->>>>>>> 18a1f25d0a9cb095ec5b1129fad500e65d345c91
+
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        
-//        pills.append(Pill(prescription: "Aspirin", ndcNumber: "1233", dosageType: "pill", endDate: "today"))
+
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -166,8 +151,6 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
 //action open close v
-    
-
     
     @IBAction func sundayBoxTapped(_ sender: Any) {
      
