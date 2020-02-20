@@ -10,42 +10,42 @@ import Foundation
 import UIKit
 
 
-struct Pill: Codable {
-    var prescription: String
-    var ndcNumber: String
-    var timeOfDay: String
-    var dosageType: String
-    var endDate: String
-    var imageData: Data?
+//struct Pill: Codable {
+//    var prescription: String
+//    var ndcNumber: String
+//    var timeOfDay: String
+//    var dosageType: String
+//    var endDate: String
+//    var imageData: Data?
+//
     
-    
-    init(prescription: String, ndcNumber: String, timeOfDay: String, dosageType: String, endDate: String, imageData: Data? = nil) {
-        self.prescription = prescription
-        self.ndcNumber = ndcNumber
-        self.timeOfDay = timeOfDay
-        self.dosageType = dosageType
-        self.endDate = endDate
-        self.imageData = imageData
-    }
-    
-    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-    static let archiveURL = documentsDirectory.appendingPathComponent("pill_test").appendingPathExtension("plist")
-    
-    static func saveToFile(pills: [Pill]) {
-        let propertyListEncoder = PropertyListEncoder()
-        let encodedPills = try? propertyListEncoder.encode(pills)
-       
-        try? encodedPills?.write(to: Pill.archiveURL, options: .noFileProtection)
-    }
-    
-    static func loadFromFile() -> [Pill]? {
-        
-        guard let codedPills = try? Data(contentsOf: Pill.archiveURL) else { return nil }
-        
-        let propertyListDecoder = PropertyListDecoder()
-        
-        return try? propertyListDecoder.decode([Pill].self, from: codedPills)
-    }
-    
-    
-}
+//    init(prescription: String, ndcNumber: String, timeOfDay: String, dosageType: String, endDate: String, imageData: Data? = nil) {
+//        self.prescription = prescription
+//        self.ndcNumber = ndcNumber
+//        self.timeOfDay = timeOfDay
+//        self.dosageType = dosageType
+//        self.endDate = endDate
+//        self.imageData = imageData
+//    }
+//    
+//    static let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+//    static let archiveURL = documentsDirectory.appendingPathComponent("pill_test").appendingPathExtension("plist")
+//    
+//    static func saveToFile(pills: [Pill]) {
+//        let propertyListEncoder = PropertyListEncoder()
+//        let encodedPills = try? propertyListEncoder.encode(pills)
+//       
+//        try? encodedPills?.write(to: Pill.archiveURL, options: .noFileProtection)
+//    }
+//    
+//    static func loadFromFile() -> [Pill]? {
+//        
+//        guard let codedPills = try? Data(contentsOf: Pill.archiveURL) else { return nil }
+//        
+//        let propertyListDecoder = PropertyListDecoder()
+//        
+//        return try? propertyListDecoder.decode([Pill].self, from: codedPills)
+//    }
+//    
+//    
+//}

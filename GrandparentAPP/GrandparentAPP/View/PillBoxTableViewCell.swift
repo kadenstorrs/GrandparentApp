@@ -10,7 +10,7 @@ import UIKit
 
 class PillBoxTableViewCell: UITableViewCell {
     
-    var pill: Pill?
+    var pill: Pills?
     var checkTapped = false
 
     @IBOutlet weak var checkMarkButton: UIButton!
@@ -29,12 +29,12 @@ class PillBoxTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func update(with pill: Pill) {
+    func update(with pill: Pills) {
         prescriptionLabel.text = pill.prescription
         timeOfDayLabel.text = pill.timeOfDay
-        if let photo = pill.imageData {
-            photoImageView.image = UIImage(data: photo)
-        }
+//        if let photo = pill.imageData {
+//            photoImageView.image = UIImage(data: photo)
+//        }
     }
     
     @IBAction func checkMarkButtonTapped(_ sender: Any) {

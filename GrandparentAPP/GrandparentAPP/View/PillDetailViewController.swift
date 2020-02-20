@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import CoreData
 
 class PillDetailViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
@@ -73,7 +74,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     //Outlets for the days of the week ^
     
-    var pill: Pill?
+    var pill: Pills?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -164,6 +165,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
              
      //border color ^
         
+        if let image = circularImage.image {
+            pill?.image = image.pngData()
+        }
+        
+//        let image = circularImage.image!
+//        let data = image.pngData()!
+//        let newImageFromData = UIImage(data: data)
+        
         // This lets the user tap on the screen to get the keyboard to go off
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -202,7 +211,9 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             endDay.text = pill.endDate
             productNameLbl.text = pill.prescription
             timeOfDayTxt.text = pill.timeOfDay
-           
+            if let image = circularImage.image {
+                pill.image = image.pngData()
+            }
         }
         updateView()
         
@@ -667,9 +678,11 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let timeOfDay = timeOfDayTxt.text ?? ""
         let dosageType = dosageTypeLbl.text ?? ""
         let endDate = endDay.text ?? ""
-        let imageData = addPhotoButton.backgroundImage(for: .normal)
+//        let imageData = addPhotoButton.backgroundImage(for: .normal)
 
-        pill = Pill(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay,  dosageType: dosageType, endDate: endDate, imageData: imageData?.pngData())
+        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, endDate: endDate)
+        PillsController.sharedController.save()
+        
     }
 
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
@@ -678,12 +691,13 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             dosageTypeLbl.text = packaging.dosage_form
             productNameLbl.text = packaging.generic_name
 //            timeOfDayTxt.text = packaging.timeOfDay
+            PillsController.sharedController.save()
         }
     }
     
     func updateView() {
         guard let pill = pill else { return }
-        if let imageData = pill.imageData,
+        if let imageData = pill.image,
             let image = UIImage(data: imageData) {
             addPhotoButton.setTitle("", for: .normal)
             addPhotoButton.setImage(image, for: .normal)
@@ -702,40 +716,43 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBAction func addPhotoButtonTapped(_ sender: Any) {
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
-        
+
         let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
+
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
         alertController.addAction(cancelAction)
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
             let cameraAction = UIAlertAction(title: "Camera", style: .default, handler: { action in imagePicker.sourceType = .camera
                 self.present(imagePicker, animated: true, completion: nil)
             })
             alertController.addAction(cameraAction)
         }
-        
+
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             let photoLibraryAction = UIAlertAction(title: "Photo Library", style: .default, handler: { action in imagePicker.sourceType = .photoLibrary
                 self.present(imagePicker, animated: true, completion: nil)
             })
             alertController.addAction(photoLibraryAction)
         }
-        
+
         present(alertController, animated: true, completion: nil)
-        
+
     }
     
+    
+
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
+
         if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            
-            pill?.imageData = selectedImage.pngData()
+
+            pill?.image = selectedImage.pngData()
             addPhotoButton.imageView?.image = selectedImage
             dismiss(animated: true) {
                 self.updateView()
             }
         }
     }
-        
+
 }
+
