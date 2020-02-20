@@ -41,6 +41,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let image = circularImage.image {
+            pill?.image = image.pngData()
+        }
+        
+//        let image = circularImage.image!
+//        let data = image.pngData()!
+//        let newImageFromData = UIImage(data: data)
+        
         // This lets the user tap on the screen to get the keyboard to go off
         
         let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
@@ -79,9 +87,11 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             endDay.text = pill.endDate
             productNameLbl.text = pill.prescription
             timeOfDayTxt.text = pill.timeOfDay
-           
+            if let image = circularImage.image {
+                pill.image = image.pngData()
+            }
         }
-//        updateView()
+        updateView()
         
     }
     
@@ -407,17 +417,17 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
-//    func updateView() {
-//        guard let pill = pill else { return }
-//        if let imageData = pill.imageData,
-//            let image = UIImage(data: imageData) {
-//            addPhotoButton.setTitle("", for: .normal)
-//            addPhotoButton.setImage(image, for: .normal)
-//        } else {
-//            addPhotoButton.setTitle("Add Photo", for: .normal)
-//            addPhotoButton.setImage(nil, for: .normal)
-//        }
-//    }
+    func updateView() {
+        guard let pill = pill else { return }
+        if let imageData = pill.image,
+            let image = UIImage(data: imageData) {
+            addPhotoButton.setTitle("", for: .normal)
+            addPhotoButton.setImage(image, for: .normal)
+        } else {
+            addPhotoButton.setTitle("Add Photo", for: .normal)
+            addPhotoButton.setImage(nil, for: .normal)
+        }
+    }
     
     
     func textFieldShouldReturn(_ textfield: UITextField) -> Bool {
@@ -453,18 +463,18 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     
-//
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-//
-//        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-//
-//            pill?.imageData = selectedImage.pngData()
-//            addPhotoButton.imageView?.image = selectedImage
-//            dismiss(animated: true) {
-//                self.updateView()
-//            }
-//        }
-//    }
-//
-//}
+
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+        if let selectedImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+
+            pill?.image = selectedImage.pngData()
+            addPhotoButton.imageView?.image = selectedImage
+            dismiss(animated: true) {
+                self.updateView()
+            }
+        }
+    }
+
 }
+

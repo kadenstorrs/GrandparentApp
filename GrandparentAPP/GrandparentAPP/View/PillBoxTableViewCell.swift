@@ -32,9 +32,9 @@ class PillBoxTableViewCell: UITableViewCell {
     func update(with pill: Pills) {
         prescriptionLabel.text = pill.prescription
         timeOfDayLabel.text = pill.timeOfDay
-//        if let photo = pill.imageData {
-//            photoImageView.image = UIImage(data: photo)
-//        }
+        if let photo = pill.image as Data? {
+            photoImageView.image = UIImage(data: photo)
+        } 
     }
     
     @IBAction func checkMarkButtonTapped(_ sender: Any) {

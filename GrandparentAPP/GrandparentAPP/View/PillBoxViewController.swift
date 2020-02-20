@@ -12,27 +12,14 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBOutlet weak var tableView: UITableView!
     
-    var pills: [Pills] = []
-    
-//
-//    var pills: [Pill] = [] {
-//        didSet {
-//            Pill.saveToFile(pills: pills)
-//        }
-//    }
+    var pills: [Pills] = PillsController.sharedController.pill
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        if let savedPills = Pill.loadFromFile() {
-//            pills = savedPills
-//        }
-        
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
 //        pills.append(Pill(prescription: "Aspirin", ndcNumber: "1233", dosageType: "pill", endDate: "today"))
-     
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -46,15 +33,20 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         
         tableView.setEditing(!tableViewEditingMode, animated: true)
     }
+
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
+            let pill = pills[indexPath.row]
+            Stack.persistantContainer.viewContext.delete(pill)
             pills.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
+            Stack.saveContext()
         }
     }
     
@@ -93,7 +85,6 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                 pills.append(pill)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
-//            Pill.saveToFile(pills: pills)
         }
     }
     
@@ -109,7 +100,6 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                pills.append(pill)
                tableView.insertRows(at: [newIndexPath], with: .automatic)
            }
-//           Pill.saveToFile(pills: pills)
        }
     }
     
@@ -122,19 +112,4 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
             nextController.pill = pill
         }
     }
-
-    
-
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
