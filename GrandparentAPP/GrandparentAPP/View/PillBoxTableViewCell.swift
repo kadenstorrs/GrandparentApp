@@ -20,7 +20,10 @@ class PillBoxTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
+        photoImageView.clipsToBounds = true
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -32,9 +35,12 @@ class PillBoxTableViewCell: UITableViewCell {
     func update(with pill: Pills) {
         prescriptionLabel.text = pill.prescription
         timeOfDayLabel.text = pill.timeOfDay
-//        if let photo = pill.imageData {
-//            photoImageView.image = UIImage(data: photo)
-//        }
+        print("pill: \(pill)")
+        if let image = pill.image,
+//            let data = image.pngData(),
+            let newImageFromData = UIImage(data: image) {
+            photoImageView.image = newImageFromData
+        }
     }
     
     @IBAction func checkMarkButtonTapped(_ sender: Any) {

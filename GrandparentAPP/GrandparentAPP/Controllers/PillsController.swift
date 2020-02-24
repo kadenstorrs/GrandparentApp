@@ -24,11 +24,6 @@ class PillsController {
         }
     }
     
-    func createPill(prescription: String, ndcNumber: String, timeOfDay: String, dosageType: String, endDate: String) {
-        let _ = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, endDate: endDate)
-        save()
-    }
-    
     func delete(pill: Pills) {
         Stack.context.delete(pill)
         save()
