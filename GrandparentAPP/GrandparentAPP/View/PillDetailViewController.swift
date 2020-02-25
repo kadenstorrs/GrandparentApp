@@ -232,11 +232,10 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let ndcNumber = ndcNumberLbl.text ?? ""
         let timeOfDay = timeofDayTxtField.text ?? ""
         let dosageType = dosageTypeTxtField.text ?? ""
-        let endDate = endDay.text ?? ""
         let image = circularImage.image?.pngData()
         
         
-        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, endDate: endDate, image: image)
+        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image)
         PillsController.sharedController.save()
         
     }
