@@ -92,12 +92,13 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             endDay.text = pill.endDate
             productNameLbl.text = pill.prescription
             timeOfDayTxt.text = pill.timeOfDay
-            if let image = circularImage.image {
-                pill.image = image.pngData()
+            
+            if let image = pill.image,
+                let newImageFromData = UIImage(data: image) {
+                circularImage.image = newImageFromData
             }
         }
-        updateView()
-        
+//        updateView()
     }
     
 
@@ -399,6 +400,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let endDate = endDay.text ?? ""
         let image = circularImage.image?.pngData()
         
+        
         pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, endDate: endDate, image: image)
         PillsController.sharedController.save()
         
@@ -415,15 +417,16 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     func updateView() {
-        if let image = circularImage.image,
-            let data = image.pngData(),
-            let newImageFromData = UIImage(data: data) {
-            circularImage.image = newImageFromData
-            addPhotoButton.setTitle("", for: .normal)
-            addPhotoButton.setImage(newImageFromData, for: .normal)
-        } else {
-            addPhotoButton.setTitle("Add Photo", for: .normal)
-            addPhotoButton.setImage(nil, for: .normal)
+        if let pill = pill {
+            if let image = pill.image,
+                let newImageFromData = UIImage(data: image) {
+                circularImage.image = newImageFromData
+                addPhotoButton.setTitle("", for: .normal)
+                addPhotoButton.setImage(newImageFromData, for: .normal)
+            } else {
+                addPhotoButton.setTitle("Add Photo", for: .normal)
+                addPhotoButton.setImage(nil, for: .normal)
+            }
         }
     }
     

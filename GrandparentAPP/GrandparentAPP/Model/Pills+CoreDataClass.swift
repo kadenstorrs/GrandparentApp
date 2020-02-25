@@ -20,6 +20,7 @@ public class Pills: NSManagedObject, Decodable {
         case dosageType
         case endDate
         case image
+        case checkMark
     }
     
     static var pillsEntity: String { return "Pills" }
@@ -35,6 +36,7 @@ public class Pills: NSManagedObject, Decodable {
         self.dosageType = try values.decode(String.self, forKey: CodingKeys.dosageType)
         self.endDate = try values.decode(String.self, forKey: CodingKeys.endDate)
         self.image = try values.decode(Data?.self, forKey: CodingKeys.image)
+        self.checkMark = try values.decode(Bool.self, forKey: CodingKeys.checkMark)
     }
     
     convenience init?(prescription: String, ndcNumber: String, timeOfDay: String, dosageType: String, endDate: String, image: Data?, context: NSManagedObjectContext = Stack.context) {

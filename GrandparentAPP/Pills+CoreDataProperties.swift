@@ -2,7 +2,7 @@
 //  Pills+CoreDataProperties.swift
 //  GrandparentAPP
 //
-//  Created by Ella  Neumarker on 2/24/20.
+//  Created by Ella  Neumarker on 2/25/20.
 //  Copyright © 2020 Kaden Storrs. All rights reserved.
 //
 //
@@ -19,9 +19,10 @@ extension Pills {
 
     @NSManaged public var dosageType: String?
     @NSManaged public var endDate: String?
+    @NSManaged public var image: Data?
     @NSManaged public var ndcNumber: String?
     @NSManaged public var prescription: String?
     @NSManaged public var timeOfDay: String?
-    @NSManaged public var image: Data?
+    @NSManaged public var checkMark: Bool
 
 }
