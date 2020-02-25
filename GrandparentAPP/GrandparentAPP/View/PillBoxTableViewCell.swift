@@ -16,6 +16,7 @@ class PillBoxTableViewCell: UITableViewCell {
     @IBOutlet weak var prescriptionLabel: UILabel!
     @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
+
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,12 +27,16 @@ class PillBoxTableViewCell: UITableViewCell {
         photoImageView.clipsToBounds = true
         
     }
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
+    
+    
+    
     
     func update(with pill: Pills) {
         prescriptionLabel.text = pill.prescription
