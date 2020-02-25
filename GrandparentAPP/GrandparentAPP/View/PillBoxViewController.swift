@@ -392,7 +392,6 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
             let indexPath = tableView.indexPathForSelectedRow!
             let pill = pills[indexPath.row]
             let nextController = segue.destination as! PillDetailViewController
-            print("editPill: \(pill)")
             nextController.pill = pill
         }
     }
