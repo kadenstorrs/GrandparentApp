@@ -19,7 +19,6 @@ extension Pills {
 
     @NSManaged public var checkMark: Bool
     @NSManaged public var dosageType: String?
-    @NSManaged public var endDate: String?
     @NSManaged public var image: Data?
     @NSManaged public var ndcNumber: String?
     @NSManaged public var prescription: String?
