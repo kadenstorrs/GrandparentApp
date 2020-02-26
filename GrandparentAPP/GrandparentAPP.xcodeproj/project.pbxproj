@@ -27,7 +27,7 @@
 		EDD6E1BE23F46C6000954E96 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BD23F46C6000954E96 /* Stack.swift */; };
 		EDD6E1C023F59A2700954E96 /* PillsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BF23F59A2700954E96 /* PillsController.swift */; };
 		EDD6E1F323FD8DD300954E96 /* Pills+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1F123FD8DD300954E96 /* Pills+CoreDataClass.swift */; };
-		EDD6E1FA24057A6C00954E96 /* Pills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1F924057A6C00954E96 /* Pills+CoreDataProperties.swift */; };
+		EDD6E1FC2406BC5200954E96 /* Pills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1FB2406BC5200954E96 /* Pills+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +53,7 @@
 		EDD6E1BD23F46C6000954E96 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		EDD6E1BF23F59A2700954E96 /* PillsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsController.swift; sourceTree = "<group>"; };
 		EDD6E1F123FD8DD300954E96 /* Pills+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pills+CoreDataClass.swift"; sourceTree = "<group>"; };
-		EDD6E1F924057A6C00954E96 /* Pills+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "Pills+CoreDataProperties.swift"; path = "../../Pills+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EDD6E1FB2406BC5200954E96 /* Pills+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pills+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +103,7 @@
 		ED94FB6023D9FF8D0037619D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				EDD6E1F924057A6C00954E96 /* Pills+CoreDataProperties.swift */,
+				EDD6E1FB2406BC5200954E96 /* Pills+CoreDataProperties.swift */,
 				EDD6E1F123FD8DD300954E96 /* Pills+CoreDataClass.swift */,
 				EDD6E1B623F45F7600954E96 /* GrandparentApp.xcdatamodeld */,
 				EDD6E1BD23F46C6000954E96 /* Stack.swift */,
@@ -211,7 +211,6 @@
 				EDD6E1C023F59A2700954E96 /* PillsController.swift in Sources */,
 				3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */,
 				3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */,
-				EDD6E1FA24057A6C00954E96 /* Pills+CoreDataProperties.swift in Sources */,
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
 				EDD6E1BE23F46C6000954E96 /* Stack.swift in Sources */,
 				EDD6E1F323FD8DD300954E96 /* Pills+CoreDataClass.swift in Sources */,
@@ -220,6 +219,7 @@
 				ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */,
 				3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */,
 				EDB0830A23E0864000CAD2B3 /* PillBoxTableViewCell.swift in Sources */,
+				EDD6E1FC2406BC5200954E96 /* Pills+CoreDataProperties.swift in Sources */,
 				3FC2121323DF31E800288428 /* MedURLController.swift in Sources */,
 				ED94FB6423D9FFCC0037619D /* GradientBackground.swift in Sources */,
 				3F39610C23CE1578008938A0 /* AppDelegate.swift in Sources */,
