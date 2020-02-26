@@ -11,6 +11,7 @@ import UIKit
 class PillBoxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //outlets open close & box v
     
+    @IBOutlet weak var editBtn: UIButton!
     @IBOutlet weak var sundayOpenView: UIView!
     @IBOutlet weak var sundayOpenSubView: UIView!
     @IBOutlet weak var sundayCloseView: UIView!
@@ -46,6 +47,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var saturdayCloseView: UIView!
     @IBOutlet weak var saturdayBoxView: UIView!
     
+    var checkTapped = false
 //outlets open close & box ^
     
     @IBOutlet weak var tableView: UITableView!
@@ -310,9 +312,17 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     @IBAction func editButtonTapped(_ sender: Any) {
-        let tableViewEditingMode = tableView.isEditing
-        
-        tableView.setEditing(!tableViewEditingMode, animated: true)
+        if self.checkTapped == false {
+                    checkTapped = true
+                    editBtn.setTitle("Done", for: UIControl.State.normal)
+                    tableView.isEditing = true
+        //            tableView.setEditing(tableViewEdit, animated: true)
+                } else if self.checkTapped == true {
+                    checkTapped = false
+                     editBtn.setTitle("Edit", for: UIControl.State.normal)
+                    tableView.isEditing = false
+        //            tableView.endEditing(true)
+                }
     }
 
     
