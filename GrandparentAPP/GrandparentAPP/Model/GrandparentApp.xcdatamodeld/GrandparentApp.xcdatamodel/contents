@@ -4,13 +4,12 @@
         <attribute name="checkMark" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="daysToTake" optional="YES" attributeType="String"/>
         <attribute name="dosageType" optional="YES" attributeType="String"/>
-        <attribute name="endDate" optional="YES" attributeType="String"/>
         <attribute name="image" optional="YES" attributeType="Binary"/>
         <attribute name="ndcNumber" optional="YES" attributeType="String"/>
         <attribute name="prescription" optional="YES" attributeType="String"/>
         <attribute name="timeOfDay" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Pills" positionX="160" positionY="192" width="128" height="163"/>
+        <element name="Pills" positionX="160" positionY="192" width="128" height="148"/>
     </elements>
 </model>

@@ -235,7 +235,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let image = circularImage.image?.pngData()
         
         
-        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image)
+        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: "")
         PillsController.sharedController.save()
         
     }

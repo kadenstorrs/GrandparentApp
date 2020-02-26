@@ -8,12 +8,12 @@
 
 import Foundation
 
-struct DaysOfWeek {
-    var sunday: Int = 1
-    var monday: Int = 2
-    var tuesday: Int = 3
-    var wednesday: Int = 4
-    var thursday: Int = 5
-    var friday: Int = 6
-    var saturday: Int = 7
+enum DaysOfWeek: Int {
+    case sunday = 1
+    case monday = 2
+    case tuesday = 3
+    case wednesday = 4
+    case thursday = 5
+    case friday = 6
+    case saturday = 7
 }
