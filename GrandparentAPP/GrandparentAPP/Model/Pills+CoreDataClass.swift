@@ -38,7 +38,7 @@ public class Pills: NSManagedObject, Decodable {
         self.checkMark = try values.decode(Bool.self, forKey: CodingKeys.checkMark)
         self.daysToTake = try values.decode(String.self, forKey: CodingKeys.daysToTake)
     }
-    
+    //worthless commit
 
     convenience init?(prescription: String, ndcNumber: String, timeOfDay: String, dosageType: String, image: Data?, daysToTake: [DaysOfWeek], context: NSManagedObjectContext = Stack.context) {
         
