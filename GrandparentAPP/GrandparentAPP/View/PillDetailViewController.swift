@@ -155,15 +155,36 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
 //        
 //        
 //    }
-//        
+    
+    @IBAction func saveButtonTapped(_ sender: Any) {
+        
+        let prescription = perscriptionNameTxtField.text ?? ""
+        let ndcNumber = ndcNumberLbl.text ?? ""
+        let timeOfDay = timeofDayTxtField.text ?? ""
+        let dosageType = dosageTypeTxtField.text ?? ""
+        let image = circularImage.image?.pngData()
+        let daysToTake = daysSelected()
+        
+        
+        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: daysToTake)
+        
+        Stack.saveContext()
+        
+         performSegue(withIdentifier: "saveUnwind", sender: Any.self)
+       
+        
+    }
     
     @IBAction func dayOfWeekBtnTapped(_ sender: UIButton) {
+//        sender.isSelected.toggle()
+        
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
             if !granted {
                 print("Something went wrong")
             } else {
                 DispatchQueue.main.async {
+
                     sender.setImage(UIImage(systemName: "\(String(describing: sender.titleLabel?.text?.first)).square.fill"), for: .normal)
                     let dayOfWeek = (sender as UIButton).tag
 
@@ -187,14 +208,9 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             }
         }
+        sender.isSelected.toggle()
     }
     
-       
-       
-    
-    
- 
- 
     
     func createToolbar() {
         let toolbar = UIToolbar()
@@ -223,6 +239,33 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         return picker1.accessibilityElementCount()
     }
     
+    
+    func daysSelected() -> [DaysOfWeek] {
+        var selectedDays: [DaysOfWeek] = []
+        if suBtn.isSelected {
+            selectedDays.append(.sunday)
+        }
+        if mBtn.isSelected {
+            selectedDays.append(.monday)
+        }
+        if tBtn.isSelected {
+            selectedDays.append(.tuesday)
+        }
+        if wBtn.isSelected {
+            selectedDays.append(.wednesday)
+        }
+        if thBtn.isSelected {
+            selectedDays.append(.thursday)
+        }
+        if fBtn.isSelected {
+            selectedDays.append(.friday)
+        }
+        if saBtn.isSelected {
+            selectedDays.append(.saturday)
+        }
+        return selectedDays
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)
 
@@ -233,11 +276,12 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let timeOfDay = timeofDayTxtField.text ?? ""
         let dosageType = dosageTypeTxtField.text ?? ""
         let image = circularImage.image?.pngData()
-        
-        
-        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: "")
+        let daysToTake = daysSelected()
+
+
+        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: daysToTake)
         PillsController.sharedController.save()
-        
+
     }
 
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
@@ -315,6 +359,24 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             }
             
         }
+    }
+    
+    @IBAction func ndcInfoButton(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "National Drug Code", message: "A unique 10-digit or 11-digit, 3-segment number, and a universal product identifier for human drugs in the United States."
+            ,preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true,  completion: nil)
+    }
+    
+    @IBAction func dosageTypeInfoButton(_ sender: Any) {
+        
+        let alert = UIAlertController(title: "Dosage Type", message: "The physical form of a dose of a chemical compound used as medication intended for consumption. Common dosage forms include pill, tablet, or capsule."
+            ,preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        
+        self.present(alert, animated: true,  completion: nil)
     }
     
 }
