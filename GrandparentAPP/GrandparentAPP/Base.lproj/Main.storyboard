@@ -761,7 +761,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="HlX-xB-UNq"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="i1J-fh-70k"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0V-HH-LvB">
@@ -778,7 +778,7 @@
                                                                 </state>
                                                                 <state key="selected" image="m.square.fill" catalog="system"/>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="CuZ-sP-dDe"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="ZJ2-l3-0Y5"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70l-Qi-sFI">
@@ -788,7 +788,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="4MH-q7-noV"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="IhX-9h-mxH"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-44-I1J">
@@ -798,7 +798,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="mzq-d5-sGu"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="pzS-74-WGf"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoK-6e-VMA">
@@ -808,7 +808,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="kzw-11-0xQ"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="VLe-lX-0LX"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glt-dj-XkH">
@@ -818,7 +818,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="eG4-dx-pQm"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="Oli-e0-Fid"/>
                                                                 </connections>
                                                             </button>
                                                             <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oy-ug-nEI">
@@ -828,7 +828,7 @@
                                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="W6s-BD-NkT"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="n3H-S9-ajy"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>

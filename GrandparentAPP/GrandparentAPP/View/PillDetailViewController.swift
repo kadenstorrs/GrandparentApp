@@ -176,15 +176,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func dayOfWeekBtnTapped(_ sender: UIButton) {
-//        sender.isSelected.toggle()
         
+
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
             if !granted {
                 print("Something went wrong")
             } else {
                 DispatchQueue.main.async {
-
                     sender.setImage(UIImage(systemName: "\(String(describing: sender.titleLabel?.text?.first)).square.fill"), for: .normal)
                     let dayOfWeek = (sender as UIButton).tag
 
@@ -208,7 +207,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 }
             }
         }
-        sender.isSelected.toggle()
     }
     
     
