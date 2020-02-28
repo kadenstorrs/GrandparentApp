@@ -47,10 +47,19 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var saturdayCloseView: UIView!
     @IBOutlet weak var saturdayBoxView: UIView!
     
+    var selectedDay: DaysOfWeek? {
+        didSet {
+            filteredPills = filteredPills(pills: pills)
+            tableView.reloadData()
+        }
+    }
+    
     var checkTapped = false
 //outlets open close & box ^
     
     @IBOutlet weak var tableView: UITableView!
+    
+    var filteredPills: [Pills] = []
     
     var pills: [Pills] = PillsController.sharedController.pill
     
@@ -152,163 +161,30 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         tableView.reloadData()
     }
     
-//action open close v
+
+    @IBAction func daysOfWeekBoxTapped(_ sender: UIButton) {
+           
+           selectedDay = DaysOfWeek(rawValue: sender.tag)
+           
+           sundayCloseView.isHidden = selectedDay == .sunday
+           mondayCloseView.isHidden = selectedDay == .monday
+           tuesdayCloseView.isHidden = selectedDay == .tuesday
+           wednesdayCloseView.isHidden = selectedDay == .wednesday
+           thursdayCloseView.isHidden = selectedDay == .thursday
+           fridayCloseView.isHidden = selectedDay == .friday
+           saturdayCloseView.isHidden = selectedDay == .saturday
+           
+           sundayOpenView.isHidden = selectedDay != .sunday
+           mondayOpenView.isHidden = selectedDay != .monday
+           tuesdayOpenView.isHidden = selectedDay != .tuesday
+           wednesdayOpenView.isHidden = selectedDay != .wednesday
+           thursdayOpenView.isHidden = selectedDay != .thursday
+           fridayOpenView.isHidden = selectedDay != .friday
+           saturdayOpenView.isHidden = selectedDay != .saturday
+
+           
+       }
     
-    @IBAction func sundayBoxTapped(_ sender: Any) {
-     
-      //  sundayCloseView.isHidden = false
-        mondayCloseView.isHidden = false
-        tuesdayCloseView.isHidden = false
-        wednesdayCloseView.isHidden = false
-        thursdayCloseView.isHidden = false
-        fridayCloseView.isHidden = false
-        saturdayCloseView.isHidden = false
-        
-      //  sundayOpenView.isHidden = true
-        mondayOpenView.isHidden = true
-        tuesdayOpenView.isHidden = true
-        wednesdayOpenView.isHidden = true
-        thursdayOpenView.isHidden = true
-        fridayOpenView.isHidden = true
-        saturdayOpenView.isHidden = true
-        
-        sundayOpenView.isHidden = !sundayOpenView.isHidden
-        sundayCloseView.isHidden = !sundayCloseView.isHidden
-    }
-    
-    @IBAction func mondaydayBoxTapped(_ sender: Any) {
-        
-        sundayCloseView.isHidden = false
-      //  mondayCloseView.isHidden = false
-        tuesdayCloseView.isHidden = false
-        wednesdayCloseView.isHidden = false
-        thursdayCloseView.isHidden = false
-        fridayCloseView.isHidden = false
-        saturdayCloseView.isHidden = false
-        
-        sundayOpenView.isHidden = true
-      //  mondayOpenView.isHidden = true
-        tuesdayOpenView.isHidden = true
-        wednesdayOpenView.isHidden = true
-        thursdayOpenView.isHidden = true
-        fridayOpenView.isHidden = true
-        saturdayOpenView.isHidden = true
-        
-        mondayOpenView.isHidden = !mondayOpenView.isHidden
-        mondayCloseView.isHidden = !mondayCloseView.isHidden
-    }
-    
-    @IBAction func tuesdayBoxTapped(_ sender: Any) {
-       
-        sundayCloseView.isHidden = false
-        mondayCloseView.isHidden = false
-      // tuesdayCloseView.isHidden = false
-        wednesdayCloseView.isHidden = false
-        thursdayCloseView.isHidden = false
-        fridayCloseView.isHidden = false
-        saturdayCloseView.isHidden = false
-        sundayOpenView.isHidden = true
-        
-        mondayOpenView.isHidden = true
-      //  tuesdayOpenView.isHidden = true
-        wednesdayOpenView.isHidden = true
-        thursdayOpenView.isHidden = true
-        fridayOpenView.isHidden = true
-        saturdayOpenView.isHidden = true
-        
-        tuesdayOpenView.isHidden = !tuesdayOpenView.isHidden
-        tuesdayCloseView.isHidden = !tuesdayCloseView.isHidden
-    }
-    
-    @IBAction func wednesdayBoxTapped(_ sender: Any) {
-        
-        sundayCloseView.isHidden = false
-        mondayCloseView.isHidden = false
-        tuesdayCloseView.isHidden = false
-      //   wednesdayCloseView.isHidden = false
-        thursdayCloseView.isHidden = false
-        fridayCloseView.isHidden = false
-        saturdayCloseView.isHidden = false
-        
-        sundayOpenView.isHidden = true
-        mondayOpenView.isHidden = true
-        tuesdayOpenView.isHidden = true
-      //  wednesdayOpenView.isHidden = true
-        thursdayOpenView.isHidden = true
-        fridayOpenView.isHidden = true
-        saturdayOpenView.isHidden = true
-        
-        wednesdayOpenView.isHidden = !wednesdayOpenView.isHidden
-        wednesdayCloseView.isHidden = !wednesdayCloseView.isHidden
-    }
-    
-    @IBAction func thursdayBoxTapped(_ sender: Any) {
-        
-        sundayCloseView.isHidden = false
-        mondayCloseView.isHidden = false
-        tuesdayCloseView.isHidden = false
-        wednesdayCloseView.isHidden = false
-      //  thursdayCloseView.isHidden = false
-        fridayCloseView.isHidden = false
-        saturdayCloseView.isHidden = false
-        
-        sundayOpenView.isHidden = true
-        mondayOpenView.isHidden = true
-        tuesdayOpenView.isHidden = true
-        wednesdayOpenView.isHidden = true
-      //  thursdayOpenView.isHidden = true
-        fridayOpenView.isHidden = true
-        saturdayOpenView.isHidden = true
-        
-        thursdayOpenView.isHidden = !thursdayOpenView.isHidden
-        thursdayCloseView.isHidden = !thursdayCloseView.isHidden
-    }
-    
-    @IBAction func fridayBoxTapped(_ sender: Any) {
-        
-       sundayCloseView.isHidden = false
-       mondayCloseView.isHidden = false
-       tuesdayCloseView.isHidden = false
-       wednesdayCloseView.isHidden = false
-       thursdayCloseView.isHidden = false
-    //   fridayCloseView.isHidden = false
-       saturdayCloseView.isHidden = false
-        
-        sundayOpenView.isHidden = true
-        mondayOpenView.isHidden = true
-        tuesdayOpenView.isHidden = true
-        wednesdayOpenView.isHidden = true
-        thursdayOpenView.isHidden = true
-      //  fridayOpenView.isHidden = true
-        saturdayOpenView.isHidden = true
-        
-        fridayOpenView.isHidden = !fridayOpenView.isHidden
-        fridayCloseView.isHidden = !fridayCloseView.isHidden
-    }
-    
-    @IBAction func saturdayBoxTapped(_ sender: Any) {
-        
-        sundayCloseView.isHidden = false
-        mondayCloseView.isHidden = false
-        tuesdayCloseView.isHidden = false
-        wednesdayCloseView.isHidden = false
-        thursdayCloseView.isHidden = false
-        fridayCloseView.isHidden = false
-     //   saturdayCloseView.isHidden = false
-        
-        sundayOpenView.isHidden = true
-        mondayOpenView.isHidden = true
-        tuesdayOpenView.isHidden = true
-        wednesdayOpenView.isHidden = true
-        thursdayOpenView.isHidden = true
-        fridayOpenView.isHidden = true
-      //  saturdayOpenView.isHidden = true
-        
-        saturdayOpenView.isHidden = !saturdayOpenView.isHidden
-        saturdayCloseView.isHidden = !saturdayCloseView.isHidden
-    }
-    
-//action open close ^
     
     
     @IBAction func editButtonTapped(_ sender: Any) {
@@ -333,25 +209,33 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == .delete {
-            let pill = pills[indexPath.row]
+            let pill = filteredPills[indexPath.row]
             Stack.persistantContainer.viewContext.delete(pill)
-            pills.remove(at: indexPath.row)
+            filteredPills.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .automatic)
             Stack.saveContext()
+            
+            //TODO: we need to change stack.saveContext()
         }
     }
     
+    func filteredPills(pills: [Pills]) -> [Pills] {
+        guard let selectedDay = selectedDay else {
+            return []
+        }
+        return pills.filter{$0.days.contains(selectedDay)}
+    }
     
     //MARK: Table View Functionality
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return pills.count
+        return filteredPills.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pillboxCell", for: indexPath) as! PillBoxTableViewCell
         
-        let pill = pills[indexPath.row]
+        let pill = filteredPills[indexPath.row]
         
         cell.update(with: pill)
         cell.accessoryType = .disclosureIndicator
@@ -360,20 +244,19 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     }
 
     
-    
     //MARK: Segue
     
     @IBAction func unwindToPillBoxTableView(segue: UIStoryboardSegue) {
         guard segue.identifier == "saveUnwind" else { return }
         let sourceViewController = segue.source as! PillDetailViewController
-        
+
         if let pill = sourceViewController.pill {
             if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                pills[selectedIndexPath.row] = pill
+                filteredPills[selectedIndexPath.row] = pill
                 tableView.reloadRows(at: [selectedIndexPath], with: .none)
             } else {
-                let newIndexPath = IndexPath(row: pills.count, section: 0)
-                pills.append(pill)
+                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
+                filteredPills.append(pill)
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
@@ -381,14 +264,14 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
        let sourceViewController = segue.source as! PillDetailViewController
-        
+
         if let pill = sourceViewController.pill {
            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-               pills[selectedIndexPath.row] = pill
+             filteredPills[selectedIndexPath.row] = pill
                tableView.reloadRows(at: [selectedIndexPath], with: .none)
            } else {
-               let newIndexPath = IndexPath(row: pills.count, section: 0)
-               pills.append(pill)
+               let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
+               filteredPills.append(pill)
                tableView.insertRows(at: [newIndexPath], with: .automatic)
            }
        }
@@ -400,7 +283,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if segue.identifier == "EditPill" {
             let indexPath = tableView.indexPathForSelectedRow!
-            let pill = pills[indexPath.row]
+            let pill = filteredPills[indexPath.row]
             let nextController = segue.destination as! PillDetailViewController
             nextController.pill = pill
         }
