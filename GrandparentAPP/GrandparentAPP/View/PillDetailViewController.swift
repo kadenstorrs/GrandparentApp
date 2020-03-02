@@ -152,8 +152,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
 //        var appleDelegate: AppDelegate = (UIApplication.shared.delegate as! AppDelegate)
 //        var context: NSManagedObjectContext = appleDelegate.
 //        
-//        
-//        
+//  
 //    }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -165,10 +164,9 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let image = circularImage.image?.pngData()
         let daysToTake = daysSelected()
         
-        
         pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: daysToTake)
         
-        Stack.saveContext()
+        PillsController.sharedController.save()
         
          performSegue(withIdentifier: "saveUnwind", sender: Any.self)
        
@@ -176,7 +174,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     @IBAction func dayOfWeekBtnTapped(_ sender: UIButton) {
-        
+
 
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
@@ -186,6 +184,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
                 DispatchQueue.main.async {
                     sender.setImage(UIImage(systemName: "\(String(describing: sender.titleLabel?.text?.first)).square.fill"), for: .normal)
                     let dayOfWeek = (sender as UIButton).tag
+                    sender.isSelected.toggle()
 
                          
                  let content = UNMutableNotificationContent()
@@ -269,16 +268,12 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
 
         guard segue.identifier != "toSearch" else { return }
 
-        let prescription = perscriptionNameTxtField.text ?? ""
-        let ndcNumber = ndcNumberLbl.text ?? ""
-        let timeOfDay = timeofDayTxtField.text ?? ""
-        let dosageType = dosageTypeTxtField.text ?? ""
-        let image = circularImage.image?.pngData()
-        let daysToTake = daysSelected()
-
-
-        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: daysToTake)
-        PillsController.sharedController.save()
+//        let prescription = perscriptionNameTxtField.text ?? ""
+//        let ndcNumber = ndcNumberLbl.text ?? ""
+//        let timeOfDay = timeofDayTxtField.text ?? ""
+//        let dosageType = dosageTypeTxtField.text ?? ""
+//        let image = circularImage.image?.pngData()
+//        let daysToTake = daysSelected()
 
     }
 
@@ -288,7 +283,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             dosageTypeTxtField.text = packaging.dosage_form
             perscriptionNameTxtField.text = packaging.generic_name
 //            timeOfDayTxt.text = packaging.timeOfDay
-            PillsController.sharedController.save()
+//            PillsController.sharedController.save()
         }
     }
     
@@ -297,10 +292,10 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             if let image = pill.image,
                 let newImageFromData = UIImage(data: image) {
                 circularImage.image = newImageFromData
-                addPhotoButton.setTitle("", for: .normal)
+//                addPhotoButton.setTitle("", for: .normal)
                 addPhotoButton.setImage(newImageFromData, for: .normal)
             } else {
-                addPhotoButton.setTitle("Add Photo", for: .normal)
+//                addPhotoButton.setTitle("Add Photo", for: .normal)
                 addPhotoButton.setImage(nil, for: .normal)
             }
         }

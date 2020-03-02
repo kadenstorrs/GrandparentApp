@@ -104,7 +104,6 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         sundayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
         sundayOpenView.layer.borderWidth = 2.5
         sundayOpenView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
-                
         sundayCloseView.layer.borderWidth = 2.5
         sundayCloseView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
         
@@ -156,6 +155,18 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     }
     
     override func viewWillAppear(_ animated: Bool) {
+       
+        let nav = self.navigationController?.navigationBar
+        nav?.tintColor = UIColor.white
+        
+//        let imageView = UIImageView(frame: CGRect(x: 0, y: 2, width: 80, height: 80))
+//        imageView.contentMode = .scaleAspectFit
+//
+//        let image = UIImage(named: "pill")
+//        imageView.image = image
+//
+//        navigationItem.titleView = imageView
+
         super.viewWillAppear(animated)
         
         tableView.reloadData()
@@ -238,7 +249,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         let pill = filteredPills[indexPath.row]
         
         cell.update(with: pill)
-        cell.accessoryType = .disclosureIndicator
+//        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
@@ -260,6 +271,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                 tableView.insertRows(at: [newIndexPath], with: .automatic)
             }
         }
+        tableView.reloadData()
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
@@ -275,6 +287,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                tableView.insertRows(at: [newIndexPath], with: .automatic)
            }
        }
+        tableView.reloadData()
     }
     
     
