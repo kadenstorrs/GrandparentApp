@@ -11,7 +11,7 @@ import UIKit
 class PillBoxViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 //outlets open close & box v
     
-    @IBOutlet weak var editBtn: UIButton!
+    @IBOutlet weak var editButton: UIBarButtonItem!
     @IBOutlet weak var sundayOpenView: UIView!
     @IBOutlet weak var sundayOpenSubView: UIView!
     @IBOutlet weak var sundayCloseView: UIView!
@@ -54,14 +54,13 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    var checkTapped = false
 //outlets open close & box ^
     
     @IBOutlet weak var tableView: UITableView!
     
     var filteredPills: [Pills] = []
     
-    var pills: [Pills] = PillsController.sharedController.pill
+    var pills: [Pills] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -156,6 +155,8 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
        
+        pills = PillsController.sharedController.pill()
+        
         let nav = self.navigationController?.navigationBar
         nav?.tintColor = UIColor.white
         
@@ -196,22 +197,29 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
            
        }
     
-    
+    var checkTapped = false
     
     @IBAction func editButtonTapped(_ sender: Any) {
+        
         if self.checkTapped == false {
-                    checkTapped = true
-                    editBtn.setTitle("Done", for: UIControl.State.normal)
-                    tableView.isEditing = true
-        //            tableView.setEditing(tableViewEdit, animated: true)
-                } else if self.checkTapped == true {
-                    checkTapped = false
-                     editBtn.setTitle("Edit", for: UIControl.State.normal)
-                    tableView.isEditing = false
-        //            tableView.endEditing(true)
-                }
+            checkTapped = true
+//            let backItem = UIBarButtonItem()
+//            backItem.title = "Cancel"
+//            self.navigationItem.leftBarButtonItem = backItem
+           
+//            tableView.isEditing = true
+            //            tableView.setEditing(tableViewEdit, animated: true)
+        } else if self.checkTapped == true {
+            checkTapped = false
+//            let backItem = UIBarButtonItem()
+//            backItem.title = "Edit"
+//            self.navigationItem.leftBarButtonItem = backItem
+//            tableView.isEditing = false
+            //            tableView.endEditing(true)
+        }
     }
-
+    
+    
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
@@ -243,40 +251,43 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         return filteredPills.count
     }
     
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "pillboxCell", for: indexPath) as! PillBoxTableViewCell
         
         let pill = filteredPills[indexPath.row]
         
         cell.update(with: pill)
-//        cell.accessoryType = .disclosureIndicator
+        
+        //    cell.accessoryType = .disclosureIndicator
         
         return cell
     }
-
+    
     
     //MARK: Segue
     
-    @IBAction func unwindToPillBoxTableView(segue: UIStoryboardSegue) {
-        guard segue.identifier == "saveUnwind" else { return }
-        let sourceViewController = segue.source as! PillDetailViewController
-
-        if let pill = sourceViewController.pill {
-            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-                filteredPills[selectedIndexPath.row] = pill
-                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-            } else {
-                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
-                filteredPills.append(pill)
-                tableView.insertRows(at: [newIndexPath], with: .automatic)
-            }
-        }
-        tableView.reloadData()
-    }
+//    @IBAction func unwindToPillBoxTableView(segue: UIStoryboardSegue) {
+//        guard segue.identifier == "saveUnwind" else { return }
+//        let sourceViewController = segue.source as! PillDetailViewController
+//
+//        if let pill = sourceViewController.pill {
+//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+//                filteredPills[selectedIndexPath.row] = pill
+//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+//            } else {
+//                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
+//                filteredPills.append(pill)
+//                tableView.insertRows(at: [newIndexPath], with: .automatic)
+//            }
+//        }
+//        tableView.reloadData()
+//    }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
        let sourceViewController = segue.source as! PillDetailViewController
 
+        print("filtered Pill Count: \(filteredPills.count)")
         if let pill = sourceViewController.pill {
            if let selectedIndexPath = tableView.indexPathForSelectedRow {
              filteredPills[selectedIndexPath.row] = pill
