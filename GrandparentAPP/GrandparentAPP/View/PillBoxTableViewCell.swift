@@ -21,7 +21,7 @@ class PillBoxTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let image = UIImage(systemName: "circle")
+        let image = UIImage(systemName: "square")
         checkMarkButton.setImage(image, for: .normal)
         photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
         photoImageView.clipsToBounds = true
@@ -49,12 +49,12 @@ class PillBoxTableViewCell: UITableViewCell {
     
     @IBAction func checkMarkButtonTapped(_ sender: Any) {
         if pill?.checkMark == false {
-            let checkCircle = UIImage(systemName: "checkmark.circle")
-            checkMarkButton.setImage(checkCircle, for: .normal)
+            let checkCircle = UIImage(systemName: "checkmark.square")
+            checkMarkButton.setImage(checkCircle, for: UIControl.State.normal)
             pill?.checkMark = true
         } else {
-            let emptyCircle = UIImage(systemName: "circle")
-            checkMarkButton.setImage(emptyCircle, for: .normal)
+            let emptyCircle = UIImage(systemName: "square")
+            checkMarkButton.setImage(emptyCircle, for: UIControl.State.normal)
             pill?.checkMark = false
         }
     }
