@@ -13,7 +13,7 @@ class PillsController {
     
     static let sharedController = PillsController()
     
-    var pill: [Pills] {
+    func pill() -> [Pills] {
         
         let request: NSFetchRequest<Pills> = Pills.fetchRequest()
         
