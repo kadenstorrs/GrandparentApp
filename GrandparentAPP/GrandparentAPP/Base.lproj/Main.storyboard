@@ -10,7 +10,7 @@
         <!--Pill Box-->
         <scene sceneID="wks-He-T8x">
             <objects>
-                <viewController id="LGf-7D-Bi2" customClass="PillBoxViewController" customModule="GrandparentAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LGf-7D-Bi2" customClass="PillBoxViewController" customModule="Pill_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fhr-dx-Wn5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +469,7 @@
                                 <rect key="frame" x="0.0" y="322" width="414" height="540"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pillboxCell" rowHeight="114" id="A3Q-m6-flC" customClass="PillBoxTableViewCell" customModule="GrandparentAPP" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pillboxCell" rowHeight="114" id="A3Q-m6-flC" customClass="PillBoxTableViewCell" customModule="Pill_Box" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A3Q-m6-flC" id="7Tj-ke-7bE">
@@ -610,7 +610,7 @@
         <!--New Prescription-->
         <scene sceneID="YfH-xF-ogg">
             <objects>
-                <viewController interfaceStyle="light" id="JT5-Hw-5ms" customClass="PillDetailViewController" customModule="GrandparentAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="JT5-Hw-5ms" customClass="PillDetailViewController" customModule="Pill_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u9N-qX-3Cj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -909,11 +909,6 @@
                                                     <constraint firstItem="Gkt-Of-DTm" firstAttribute="leading" secondItem="5wJ-Va-GgA" secondAttribute="leading" constant="164" id="nnk-KK-jfB"/>
                                                     <constraint firstItem="cp1-gv-Ib9" firstAttribute="leading" secondItem="6lI-HN-A2W" secondAttribute="trailing" constant="8" id="tdd-C0-le6"/>
                                                 </constraints>
-                                                <variation key="default">
-                                                    <mask key="subviews">
-                                                        <exclude reference="Gkt-Of-DTm"/>
-                                                    </mask>
-                                                </variation>
                                             </view>
                                         </subviews>
                                         <constraints>
@@ -951,6 +946,7 @@
                     <connections>
                         <outlet property="addPhotoButton" destination="xBH-bA-kad" id="3Vd-lb-WVJ"/>
                         <outlet property="circularImage" destination="MdV-O7-tOk" id="GKn-jO-orq"/>
+                        <outlet property="deletePillButton" destination="Gkt-Of-DTm" id="FrN-TG-8XC"/>
                         <outlet property="dosageTypeTxtField" destination="wUH-Vq-k52" id="snl-ia-bBg"/>
                         <outlet property="fBtn" destination="glt-dj-XkH" id="G0A-1s-uGb"/>
                         <outlet property="mBtn" destination="I0V-HH-LvB" id="e7m-Vq-ccm"/>
@@ -974,7 +970,7 @@
         <!--Prescription Library-->
         <scene sceneID="YJ6-SH-flV">
             <objects>
-                <tableViewController id="tW1-sU-P9W" customClass="SearchMedsTableViewController" customModule="GrandparentAPP" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="tW1-sU-P9W" customClass="SearchMedsTableViewController" customModule="Pill_Box" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kYd-2b-NLW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -985,7 +981,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="15" reuseIdentifier="data" rowHeight="114" id="mo1-uN-AGF" customClass="MedsTableViewCell" customModule="GrandparentAPP" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="15" reuseIdentifier="data" rowHeight="114" id="mo1-uN-AGF" customClass="MedsTableViewCell" customModule="Pill_Box" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="414" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mo1-uN-AGF" id="PrO-Uk-NAW">

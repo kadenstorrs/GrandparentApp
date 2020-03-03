@@ -16,6 +16,8 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     
     var weekday = [1, 2, 3, 4, 5, 6, 7]
     
+   
+    @IBOutlet weak var deletePillButton: UIButton!
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeTxtField: UITextField!
     @IBOutlet weak var perscriptionNameTxtField: UITextField!
@@ -164,7 +166,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         let image = circularImage.image?.pngData()
         let daysToTake = daysSelected()
         
-        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: daysToTake)
+        pill = Pills(prescription: prescription, ndcNumber: ndcNumber, timeOfDay: timeOfDay, dosageType: dosageType, image: image, daysToTake: daysToTake, datesTaken: [])
         
         PillsController.sharedController.save()
         
@@ -172,6 +174,7 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
        
         
     }
+
     
     @IBAction func dayOfWeekBtnTapped(_ sender: UIButton) {
 
@@ -262,6 +265,8 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         }
         return selectedDays
     }
+    
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: self)

@@ -258,8 +258,15 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         let pill = filteredPills[indexPath.row]
         
         cell.update(with: pill)
+        cell.checkMarkButtonTapped = { isSelected in
+            print("Check mark button was \(isSelected ? "Selected" : "Unselected") for pill \(pill.prescription!) on \(self.selectedDay!) ")
+            // add the current day selected's Date object to the pill.dates array
+            // if pillboxDaySelected == .monday {
+            // pill.dates.append(mondayDate)
+            // }
+        }
         
-        //    cell.accessoryType = .disclosureIndicator
+            cell.accessoryType = .disclosureIndicator
         
         return cell
     }

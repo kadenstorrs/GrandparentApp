@@ -11,7 +11,6 @@
 		3F39610E23CE1578008938A0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F39610D23CE1578008938A0 /* SceneDelegate.swift */; };
 		3F39611323CE1578008938A0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611123CE1578008938A0 /* Main.storyboard */; };
 		3F39611523CE157B008938A0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611423CE157B008938A0 /* Assets.xcassets */; };
-		3F39611823CE157B008938A0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3F39611623CE157B008938A0 /* LaunchScreen.storyboard */; };
 		3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */; };
 		3FC2120B23DF30FD00288428 /* MedsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */; };
 		3FC2120F23DF319100288428 /* SearchMedsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FC2120E23DF319100288428 /* SearchMedsTableViewController.swift */; };
@@ -22,20 +21,21 @@
 		ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */; };
 		ED94FB6823DA03E10037619D /* PillDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED94FB6723DA03E10037619D /* PillDetailViewController.swift */; };
 		EDB0830A23E0864000CAD2B3 /* PillBoxTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */; };
+		EDCCAFC4240EA73500C50F35 /* extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCCAFC3240EA73500C50F35 /* extensions.swift */; };
 		EDD6E1B823F45F7600954E96 /* GrandparentApp.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1B623F45F7600954E96 /* GrandparentApp.xcdatamodeld */; };
 		EDD6E1BE23F46C6000954E96 /* Stack.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BD23F46C6000954E96 /* Stack.swift */; };
 		EDD6E1C023F59A2700954E96 /* PillsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1BF23F59A2700954E96 /* PillsController.swift */; };
 		EDD6E1F323FD8DD300954E96 /* Pills+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1F123FD8DD300954E96 /* Pills+CoreDataClass.swift */; };
 		EDD6E1FC2406BC5200954E96 /* Pills+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDD6E1FB2406BC5200954E96 /* Pills+CoreDataProperties.swift */; };
+		EDD6E1FE240DFA1000954E96 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EDD6E1FD240DFA1000954E96 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		3F39610823CE1578008938A0 /* GrandparentAPP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrandparentAPP.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3F39610823CE1578008938A0 /* Pill Box.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Pill Box.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3F39610B23CE1578008938A0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3F39610D23CE1578008938A0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3F39611223CE1578008938A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3F39611423CE157B008938A0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		3F39611723CE157B008938A0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3F39611923CE157B008938A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DaysOfWeek.swift; sourceTree = "<group>"; };
 		3FC2120A23DF30FD00288428 /* MedsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MedsTableViewCell.swift; sourceTree = "<group>"; };
@@ -47,11 +47,13 @@
 		ED94FB6523DA03AD0037619D /* PillBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxViewController.swift; sourceTree = "<group>"; };
 		ED94FB6723DA03E10037619D /* PillDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillDetailViewController.swift; sourceTree = "<group>"; };
 		EDB0830923E0864000CAD2B3 /* PillBoxTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillBoxTableViewCell.swift; sourceTree = "<group>"; };
+		EDCCAFC3240EA73500C50F35 /* extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = extensions.swift; sourceTree = "<group>"; };
 		EDD6E1B723F45F7600954E96 /* GrandparentApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = GrandparentApp.xcdatamodel; sourceTree = "<group>"; };
 		EDD6E1BD23F46C6000954E96 /* Stack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stack.swift; sourceTree = "<group>"; };
 		EDD6E1BF23F59A2700954E96 /* PillsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PillsController.swift; sourceTree = "<group>"; };
 		EDD6E1F123FD8DD300954E96 /* Pills+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pills+CoreDataClass.swift"; sourceTree = "<group>"; };
 		EDD6E1FB2406BC5200954E96 /* Pills+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pills+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		EDD6E1FD240DFA1000954E96 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,7 +78,7 @@
 		3F39610923CE1578008938A0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3F39610823CE1578008938A0 /* GrandparentAPP.app */,
+				3F39610823CE1578008938A0 /* Pill Box.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -91,8 +93,8 @@
 				EDB0830223DF3DF400CAD2B3 /* Controllers */,
 				3F39611123CE1578008938A0 /* Main.storyboard */,
 				3F39611423CE157B008938A0 /* Assets.xcassets */,
+				EDD6E1FD240DFA1000954E96 /* Launch Screen.storyboard */,
 				DA5808D723E1ED3E003A507D /* pillBox.swift */,
-				3F39611623CE157B008938A0 /* LaunchScreen.storyboard */,
 				3F39611923CE157B008938A0 /* Info.plist */,
 			);
 			path = GrandparentAPP;
@@ -107,6 +109,7 @@
 				EDD6E1BD23F46C6000954E96 /* Stack.swift */,
 				3F4E9EB223EDBFEE000FAC53 /* DaysOfWeek.swift */,
 				ED94FB6323D9FFCC0037619D /* GradientBackground.swift */,
+				EDCCAFC3240EA73500C50F35 /* extensions.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -150,7 +153,7 @@
 			);
 			name = GrandparentAPP;
 			productName = GrandparentAPP;
-			productReference = 3F39610823CE1578008938A0 /* GrandparentAPP.app */;
+			productReference = 3F39610823CE1578008938A0 /* Pill Box.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -191,7 +194,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3F39611823CE157B008938A0 /* LaunchScreen.storyboard in Resources */,
+				EDD6E1FE240DFA1000954E96 /* Launch Screen.storyboard in Resources */,
 				3F39611523CE157B008938A0 /* Assets.xcassets in Resources */,
 				3F39611323CE1578008938A0 /* Main.storyboard in Resources */,
 			);
@@ -209,6 +212,7 @@
 				3FC2121523DF31EC00288428 /* NetworkController.swift in Sources */,
 				3F4E9EB323EDBFEE000FAC53 /* DaysOfWeek.swift in Sources */,
 				ED94FB6623DA03AD0037619D /* PillBoxViewController.swift in Sources */,
+				EDCCAFC4240EA73500C50F35 /* extensions.swift in Sources */,
 				EDD6E1BE23F46C6000954E96 /* Stack.swift in Sources */,
 				EDD6E1F323FD8DD300954E96 /* Pills+CoreDataClass.swift in Sources */,
 				EDD6E1B823F45F7600954E96 /* GrandparentApp.xcdatamodeld in Sources */,
@@ -233,14 +237,6 @@
 				3F39611223CE1578008938A0 /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		3F39611623CE157B008938A0 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3F39611723CE157B008938A0 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -371,7 +367,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com-kadenstorrs.GrandparentAPP";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pill Box";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -388,7 +384,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ella.GrandparentAPP;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Pill Box";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

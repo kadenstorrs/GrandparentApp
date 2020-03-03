@@ -24,5 +24,6 @@ extension Pills {
     @NSManaged public var prescription: String?
     @NSManaged public var timeOfDay: String?
     @NSManaged public var daysToTake: String?
+    @NSManaged public var datesTaken: String? 
 
 }
