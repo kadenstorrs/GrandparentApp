@@ -16,4 +16,23 @@ enum DaysOfWeek: Int {
     case thursday = 5
     case friday = 6
     case saturday = 7
+    
+    var date: Date {
+        switch self {
+        case .sunday:
+            return Date.sunday.timeRemoved()
+        case .monday:
+            return Date.monday.timeRemoved()
+        case .tuesday:
+            return Date.tuesday.timeRemoved()
+        case .wednesday:
+            return Date.wednesday.timeRemoved()
+        case .thursday:
+            return Date.thursday.timeRemoved()
+        case .friday:
+            return Date.friday.timeRemoved()
+        case .saturday:
+            return Date.saturday.timeRemoved()
+        }
+    }
 }

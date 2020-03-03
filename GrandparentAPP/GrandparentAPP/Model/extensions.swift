@@ -24,7 +24,7 @@ extension Date {
     func timeRemoved() -> Date {
         
         let myCalendar = Calendar.current
-        let newTime = myCalendar.date(bySettingHour: 0, minute: 0, second: 0, of: Date())
+        let newTime = myCalendar.date(bySettingHour: 0, minute: 0, second: 0, of: self)
         // set the time to 0.00 AM
         // return the new date with the 0.0 time
         return newTime ?? Date()

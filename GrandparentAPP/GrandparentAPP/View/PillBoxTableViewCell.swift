@@ -20,12 +20,10 @@ class PillBoxTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         
-        let image = UIImage(systemName: "square")
-        checkMarkButton.setImage(image, for: .normal)
         photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
         photoImageView.clipsToBounds = true
         checkMarkButton.setImage(UIImage(systemName: "checkmark.square"), for: .selected)
-//        checkMarkButton.setImage(UIImage(systemName: "square"), for: .normal)
+        checkMarkButton.setImage(UIImage(systemName: "square"), for: .normal)
     }
     
 
@@ -38,29 +36,21 @@ class PillBoxTableViewCell: UITableViewCell {
     
     
     
-    func update(with pill: Pills) {
+    func update(with pill: Pills, isSelected: Bool) {
         prescriptionLabel.text = pill.prescription
         timeOfDayLabel.text = pill.timeOfDay
         if let image = pill.image,
             let newImageFromData = UIImage(data: image) {
             photoImageView.image = newImageFromData
+        } else {
+            photoImageView.image = nil
         }
+        checkMarkButton.isSelected = isSelected
     }
     
     @IBAction func checkMarkButtonTapped(_ sender: UIButton) {
         sender.isSelected = !sender.isSelected
         checkMarkButtonTapped?(sender.isSelected)
-        
-    //
-//        if pill?.checkMark == false {
-//
-//            checkMarkButton.setImage(checkCircle, for: UIControl.State.normal)
-//            pill?.checkMark = true
-//        } else {
-//
-//            checkMarkButton.setImage(emptyCircle, for: UIControl.State.normal)
-//            pill?.checkMark = false
-//        }
     }
     
 }

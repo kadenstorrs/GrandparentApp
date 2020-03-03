@@ -252,77 +252,26 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let selectedDay = selectedDay else { return UITableViewCell() }
+
         let cell = tableView.dequeueReusableCell(withIdentifier: "pillboxCell", for: indexPath) as! PillBoxTableViewCell
         
         let pill = filteredPills[indexPath.row]
         
-        cell.update(with: pill)
+        var pillWasTakenOnSelectedDay = pill.dates.contains(selectedDay.date)
+        cell.update(with: pill, isSelected: pillWasTakenOnSelectedDay)
         cell.checkMarkButtonTapped = { isSelected in
-            
             if isSelected {
-                pill.dates.append(Date.sunday.timeRemoved())
+                pill.dates.append(selectedDay.date.timeRemoved())
             } else {
-                if let index = pill.dates.firstIndex(of: Date.sunday.timeRemoved()) {
+                if let index = pill.dates.firstIndex(of: selectedDay.date.timeRemoved()) {
                     pill.dates.remove(at: index)
+                } else {
+                    fatalError()
                 }
             }
-            
-            if isSelected {
-                pill.dates.append(Date.monday.timeRemoved())
-            } else {
-                if let index = pill.dates.firstIndex(of: Date.monday.timeRemoved()) {
-                    pill.dates.remove(at: index)
-                }
-            }
-            
-            if isSelected {
-                pill.dates.append(Date.tuesday.timeRemoved())
-            } else {
-                if let index = pill.dates.firstIndex(of: Date.tuesday.timeRemoved()) {
-                    pill.dates.remove(at: index)
-                }
-            }
-            
-            if isSelected {
-                pill.dates.append(Date.wednesday.timeRemoved())
-            } else {
-                if let index = pill.dates.firstIndex(of: Date.wednesday.timeRemoved()) {
-                    pill.dates.remove(at: index)
-                }
-            }
-            
-            if isSelected {
-                pill.dates.append(Date.thursday.timeRemoved())
-            } else {
-                if let index = pill.dates.firstIndex(of: Date.thursday.timeRemoved()) {
-                    pill.dates.remove(at: index)
-                }
-            }
-            
-            if isSelected {
-                pill.dates.append(Date.friday.timeRemoved())
-            } else {
-                if let index = pill.dates.firstIndex(of: Date.friday.timeRemoved()) {
-                    pill.dates.remove(at: index)
-                }
-            }
-            
-            if isSelected {
-                pill.dates.append(Date.saturday.timeRemoved())
-            } else {
-                if let index = pill.dates.firstIndex(of: Date.saturday.timeRemoved()) {
-                    pill.dates.remove(at: index)
-                }
-            }
+            PillsController.sharedController.save()
             print("Check mark button was \(isSelected ? "Selected" : "Unselected") for pill \(pill.prescription!) on \(self.selectedDay!) ")
-            // add the current day selected's Date object to the pill.dates array
-            // if pillboxDaySelected == .monday {
-            // if isSelectd {
-            // pill.dates.append(Date.monday.timeRemoved)
-            //  else
-            // if let index = pill.dates.firstIndex(of: Date.monday.timeRemoved)
-            // pill.dates.remove(at: index)
-            // }
         }
         
         cell.accessoryType = .disclosureIndicator
@@ -333,22 +282,6 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: Segue
     
-    //    @IBAction func unwindToPillBoxTableView(segue: UIStoryboardSegue) {
-    //        guard segue.identifier == "saveUnwind" else { return }
-    //        let sourceViewController = segue.source as! PillDetailViewController
-    //
-    //        if let pill = sourceViewController.pill {
-    //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-    //                filteredPills[selectedIndexPath.row] = pill
-    //                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-    //            } else {
-    //                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
-    //                filteredPills.append(pill)
-    //                tableView.insertRows(at: [newIndexPath], with: .automatic)
-    //            }
-    //        }
-    //        tableView.reloadData()
-    //    }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
         let sourceViewController = segue.source as! PillDetailViewController
