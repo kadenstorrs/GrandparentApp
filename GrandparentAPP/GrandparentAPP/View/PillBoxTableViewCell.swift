@@ -9,14 +9,13 @@
 import UIKit
 
 class PillBoxTableViewCell: UITableViewCell {
-    
-    var pill: Pills?
 
     @IBOutlet weak var checkMarkButton: UIButton!
     @IBOutlet weak var prescriptionLabel: UILabel!
     @IBOutlet weak var timeOfDayLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!
 
+    var checkMarkButtonTapped: ((Bool) -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,7 +24,8 @@ class PillBoxTableViewCell: UITableViewCell {
         checkMarkButton.setImage(image, for: .normal)
         photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
         photoImageView.clipsToBounds = true
-        
+        checkMarkButton.setImage(UIImage(systemName: "checkmark.square"), for: .selected)
+//        checkMarkButton.setImage(UIImage(systemName: "square"), for: .normal)
     }
     
 
@@ -47,16 +47,20 @@ class PillBoxTableViewCell: UITableViewCell {
         }
     }
     
-    @IBAction func checkMarkButtonTapped(_ sender: Any) {
-        if pill?.checkMark == false {
-            let checkCircle = UIImage(systemName: "checkmark.square")
-            checkMarkButton.setImage(checkCircle, for: UIControl.State.normal)
-            pill?.checkMark = true
-        } else {
-            let emptyCircle = UIImage(systemName: "square")
-            checkMarkButton.setImage(emptyCircle, for: UIControl.State.normal)
-            pill?.checkMark = false
-        }
+    @IBAction func checkMarkButtonTapped(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        checkMarkButtonTapped?(sender.isSelected)
+        
+    //
+//        if pill?.checkMark == false {
+//
+//            checkMarkButton.setImage(checkCircle, for: UIControl.State.normal)
+//            pill?.checkMark = true
+//        } else {
+//
+//            checkMarkButton.setImage(emptyCircle, for: UIControl.State.normal)
+//            pill?.checkMark = false
+//        }
     }
     
 }
