@@ -10,7 +10,7 @@
         <!--Pill Box-->
         <scene sceneID="wks-He-T8x">
             <objects>
-                <viewController id="LGf-7D-Bi2" customClass="PillBoxViewController" customModule="Pill_Box" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="LGf-7D-Bi2" customClass="PillBoxViewController" customModule="GrandparentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fhr-dx-Wn5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -469,7 +469,7 @@
                                 <rect key="frame" x="0.0" y="322" width="414" height="540"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pillboxCell" rowHeight="114" id="A3Q-m6-flC" customClass="PillBoxTableViewCell" customModule="Pill_Box" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="pillboxCell" rowHeight="114" id="A3Q-m6-flC" customClass="PillBoxTableViewCell" customModule="GrandparentApp" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="114"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="A3Q-m6-flC" id="7Tj-ke-7bE">
@@ -610,7 +610,7 @@
         <!--New Prescription-->
         <scene sceneID="YfH-xF-ogg">
             <objects>
-                <viewController interfaceStyle="light" id="JT5-Hw-5ms" customClass="PillDetailViewController" customModule="Pill_Box" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController interfaceStyle="light" id="JT5-Hw-5ms" customClass="PillDetailViewController" customModule="GrandparentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="u9N-qX-3Cj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -886,27 +886,16 @@
                                                             <action selector="dosageTypeInfoButton:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="2wT-Ia-OfI"/>
                                                         </connections>
                                                     </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gkt-Of-DTm">
-                                                        <rect key="frame" x="164" y="129" width="86" height="37"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                        <state key="normal" title="Delete Pill">
-                                                            <color key="titleColor" red="0.93725490199999995" green="0.51764705879999995" blue="0.57254901960000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                        </state>
-                                                    </button>
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="Gkt-Of-DTm" firstAttribute="top" secondItem="wUH-Vq-k52" secondAttribute="bottom" constant="17" id="2Jr-es-uKh"/>
                                                     <constraint firstItem="6lI-HN-A2W" firstAttribute="leading" secondItem="5wJ-Va-GgA" secondAttribute="leading" constant="20" id="54L-ms-CD2"/>
                                                     <constraint firstItem="cp1-gv-Ib9" firstAttribute="top" secondItem="5wJ-Va-GgA" secondAttribute="top" constant="8" id="8jc-FN-WB5"/>
                                                     <constraint firstAttribute="bottom" secondItem="wUH-Vq-k52" secondAttribute="bottom" constant="54.5" id="Ban-4h-QFL"/>
                                                     <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="6lI-HN-A2W" secondAttribute="trailing" constant="20" symbolic="YES" id="Ohf-4s-SCf"/>
                                                     <constraint firstAttribute="trailing" secondItem="wUH-Vq-k52" secondAttribute="trailing" constant="20" id="PjT-No-gfv"/>
-                                                    <constraint firstAttribute="bottom" secondItem="Gkt-Of-DTm" secondAttribute="bottom" constant="0.5" id="WnJ-lv-zpg"/>
                                                     <constraint firstItem="6lI-HN-A2W" firstAttribute="top" secondItem="5wJ-Va-GgA" secondAttribute="top" constant="8" id="bMq-Zm-jSt"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Gkt-Of-DTm" secondAttribute="trailing" constant="164" id="h8A-Lh-obB"/>
                                                     <constraint firstItem="wUH-Vq-k52" firstAttribute="leading" secondItem="5wJ-Va-GgA" secondAttribute="leading" constant="20" id="jdG-uh-d6U"/>
-                                                    <constraint firstItem="Gkt-Of-DTm" firstAttribute="leading" secondItem="5wJ-Va-GgA" secondAttribute="leading" constant="164" id="nnk-KK-jfB"/>
                                                     <constraint firstItem="cp1-gv-Ib9" firstAttribute="leading" secondItem="6lI-HN-A2W" secondAttribute="trailing" constant="8" id="tdd-C0-le6"/>
                                                 </constraints>
                                             </view>
@@ -946,7 +935,6 @@
                     <connections>
                         <outlet property="addPhotoButton" destination="xBH-bA-kad" id="3Vd-lb-WVJ"/>
                         <outlet property="circularImage" destination="MdV-O7-tOk" id="GKn-jO-orq"/>
-                        <outlet property="deletePillButton" destination="Gkt-Of-DTm" id="FrN-TG-8XC"/>
                         <outlet property="dosageTypeTxtField" destination="wUH-Vq-k52" id="snl-ia-bBg"/>
                         <outlet property="fBtn" destination="glt-dj-XkH" id="G0A-1s-uGb"/>
                         <outlet property="mBtn" destination="I0V-HH-LvB" id="e7m-Vq-ccm"/>
@@ -970,7 +958,7 @@
         <!--Prescription Library-->
         <scene sceneID="YJ6-SH-flV">
             <objects>
-                <tableViewController id="tW1-sU-P9W" customClass="SearchMedsTableViewController" customModule="Pill_Box" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="tW1-sU-P9W" customClass="SearchMedsTableViewController" customModule="GrandparentApp" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="kYd-2b-NLW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -981,7 +969,7 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="15" reuseIdentifier="data" rowHeight="114" id="mo1-uN-AGF" customClass="MedsTableViewCell" customModule="Pill_Box" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="gray" indentationWidth="15" reuseIdentifier="data" rowHeight="114" id="mo1-uN-AGF" customClass="MedsTableViewCell" customModule="GrandparentApp" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="414" height="114"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mo1-uN-AGF" id="PrO-Uk-NAW">

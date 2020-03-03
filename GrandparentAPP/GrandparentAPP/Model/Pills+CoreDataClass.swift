@@ -70,7 +70,7 @@ public class Pills: NSManagedObject, Decodable {
     var dates: [Date] {
         get {
             let components = datesTaken?.components(separatedBy: ",")
-            return components?.compactMap{ DateFormatter.short.date(from: $0) } ?? []
+            return components?.compactMap{ DateFormatter.short.date(from: $0)?.timeRemoved() } ?? []
             // split the string by the "," character
             // map the string array to an array of Dates using the DateFormatter.short.date(from: String)
         }

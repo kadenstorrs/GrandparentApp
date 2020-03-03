@@ -17,7 +17,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     var weekday = [1, 2, 3, 4, 5, 6, 7]
     
    
-    @IBOutlet weak var deletePillButton: UIButton!
     @IBOutlet weak var ndcNumberLbl: UITextField!
     @IBOutlet weak var dosageTypeTxtField: UITextField!
     @IBOutlet weak var perscriptionNameTxtField: UITextField!

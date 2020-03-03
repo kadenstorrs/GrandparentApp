@@ -98,7 +98,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
 //round corners ^
         
 //border color v
-        
+         
         sundayBoxView.layer.borderWidth = 2.5
         sundayBoxView.layer.borderColor = UIColor(red: 250/255, green: 190/255, blue: 210/255, alpha: 1).cgColor
         sundayOpenView.layer.borderWidth = 2.5
@@ -206,15 +206,14 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
 //            let backItem = UIBarButtonItem()
 //            backItem.title = "Cancel"
 //            self.navigationItem.leftBarButtonItem = backItem
-           
-//            tableView.isEditing = true
+            tableView.isEditing = true
             //            tableView.setEditing(tableViewEdit, animated: true)
         } else if self.checkTapped == true {
             checkTapped = false
 //            let backItem = UIBarButtonItem()
 //            backItem.title = "Edit"
 //            self.navigationItem.leftBarButtonItem = backItem
-//            tableView.isEditing = false
+            tableView.isEditing = false
             //            tableView.endEditing(true)
         }
     }
@@ -259,14 +258,74 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         
         cell.update(with: pill)
         cell.checkMarkButtonTapped = { isSelected in
+            
+            if isSelected {
+                pill.dates.append(Date.sunday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.sunday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
+            
+            if isSelected {
+                pill.dates.append(Date.monday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.monday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
+            
+            if isSelected {
+                pill.dates.append(Date.tuesday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.tuesday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
+            
+            if isSelected {
+                pill.dates.append(Date.wednesday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.wednesday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
+            
+            if isSelected {
+                pill.dates.append(Date.thursday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.thursday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
+            
+            if isSelected {
+                pill.dates.append(Date.friday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.friday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
+            
+            if isSelected {
+                pill.dates.append(Date.saturday.timeRemoved())
+            } else {
+                if let index = pill.dates.firstIndex(of: Date.saturday.timeRemoved()) {
+                    pill.dates.remove(at: index)
+                }
+            }
             print("Check mark button was \(isSelected ? "Selected" : "Unselected") for pill \(pill.prescription!) on \(self.selectedDay!) ")
             // add the current day selected's Date object to the pill.dates array
             // if pillboxDaySelected == .monday {
-            // pill.dates.append(mondayDate)
+            // if isSelectd {
+            // pill.dates.append(Date.monday.timeRemoved)
+            //  else
+            // if let index = pill.dates.firstIndex(of: Date.monday.timeRemoved)
+            // pill.dates.remove(at: index)
             // }
         }
         
-            cell.accessoryType = .disclosureIndicator
+        cell.accessoryType = .disclosureIndicator
         
         return cell
     }
@@ -274,37 +333,36 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
     
     //MARK: Segue
     
-//    @IBAction func unwindToPillBoxTableView(segue: UIStoryboardSegue) {
-//        guard segue.identifier == "saveUnwind" else { return }
-//        let sourceViewController = segue.source as! PillDetailViewController
-//
-//        if let pill = sourceViewController.pill {
-//            if let selectedIndexPath = tableView.indexPathForSelectedRow {
-//                filteredPills[selectedIndexPath.row] = pill
-//                tableView.reloadRows(at: [selectedIndexPath], with: .none)
-//            } else {
-//                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
-//                filteredPills.append(pill)
-//                tableView.insertRows(at: [newIndexPath], with: .automatic)
-//            }
-//        }
-//        tableView.reloadData()
-//    }
+    //    @IBAction func unwindToPillBoxTableView(segue: UIStoryboardSegue) {
+    //        guard segue.identifier == "saveUnwind" else { return }
+    //        let sourceViewController = segue.source as! PillDetailViewController
+    //
+    //        if let pill = sourceViewController.pill {
+    //            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+    //                filteredPills[selectedIndexPath.row] = pill
+    //                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+    //            } else {
+    //                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
+    //                filteredPills.append(pill)
+    //                tableView.insertRows(at: [newIndexPath], with: .automatic)
+    //            }
+    //        }
+    //        tableView.reloadData()
+    //    }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue) {
-       let sourceViewController = segue.source as! PillDetailViewController
-
-        print("filtered Pill Count: \(filteredPills.count)")
+        let sourceViewController = segue.source as! PillDetailViewController
+        
         if let pill = sourceViewController.pill {
-           if let selectedIndexPath = tableView.indexPathForSelectedRow {
-             filteredPills[selectedIndexPath.row] = pill
-               tableView.reloadRows(at: [selectedIndexPath], with: .none)
-           } else {
-               let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
-               filteredPills.append(pill)
-               tableView.insertRows(at: [newIndexPath], with: .automatic)
-           }
-       }
+            if let selectedIndexPath = tableView.indexPathForSelectedRow {
+                filteredPills[selectedIndexPath.row] = pill
+                tableView.reloadRows(at: [selectedIndexPath], with: .none)
+            } else {
+                let newIndexPath = IndexPath(row: filteredPills.count, section: 0)
+                filteredPills.append(pill)
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        }
         tableView.reloadData()
     }
     
