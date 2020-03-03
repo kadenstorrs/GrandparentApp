@@ -727,81 +727,102 @@
                                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="hrA-Lo-xl4">
                                                         <rect key="frame" x="15" y="60" width="384" height="56.5"/>
                                                         <subviews>
-                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ix-3g-5yN">
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="m.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="HfF-Ya-kpu">
+                                                                <rect key="frame" x="0.0" y="1" width="55" height="54"/>
+                                                                <color key="tintColor" red="1" green="0.50848003150066001" blue="0.42352923864629366" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="NL4-38-F1S">
+                                                                <rect key="frame" x="55" y="1" width="54.5" height="54"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="w.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="fqf-0q-gOK">
+                                                                <rect key="frame" x="109.5" y="1" width="55" height="54"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="t.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="7BK-v9-ldc">
+                                                                <rect key="frame" x="164.5" y="1" width="55" height="54"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="f.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="p1O-oN-T2v">
+                                                                <rect key="frame" x="219.5" y="1" width="55" height="54"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="hL7-bx-d35">
+                                                                <rect key="frame" x="274.5" y="1" width="54.5" height="54"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="s.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="olb-ee-cbu">
+                                                                <rect key="frame" x="329" y="1" width="55" height="54"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="8hh-mh-Z9s">
+                                                        <rect key="frame" x="15" y="60" width="384" height="56.5"/>
+                                                        <subviews>
+                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lfv-Fz-6SD">
                                                                 <rect key="frame" x="0.0" y="0.0" width="55" height="56.5"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="s.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <color key="tintColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                                    <color key="titleShadowColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="i1J-fh-70k"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="CkW-eY-5Av"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="I0V-HH-LvB">
+                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HwJ-gP-xwA">
                                                                 <rect key="frame" x="55" y="0.0" width="54.5" height="56.5"/>
-                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <accessibility key="accessibilityConfiguration" identifier="mondayBtn">
-                                                                    <accessibilityTraits key="traits" button="YES" image="YES"/>
-                                                                </accessibility>
-                                                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <size key="titleShadowOffset" width="7" height="10"/>
-                                                                <state key="normal" image="m.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
-                                                                <state key="selected" image="m.square.fill" catalog="system"/>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="ZJ2-l3-0Y5"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="aRM-SC-xvB"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="70l-Qi-sFI">
+                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Wg-DQ-rQ9">
                                                                 <rect key="frame" x="109.5" y="0.0" width="55" height="56.5"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="t.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="IhX-9h-mxH"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="O5b-Cs-yNq"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hfJ-44-I1J">
+                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Ui-fx-wgp">
                                                                 <rect key="frame" x="164.5" y="0.0" width="55" height="56.5"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="w.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="pzS-74-WGf"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="s3S-38-DjD"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eoK-6e-VMA">
+                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1if-wZ-7fS">
                                                                 <rect key="frame" x="219.5" y="0.0" width="55" height="56.5"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="t.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="VLe-lX-0LX"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="Qjx-wW-TZH"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="6" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="glt-dj-XkH">
+                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kQH-we-ui4">
                                                                 <rect key="frame" x="274.5" y="0.0" width="54.5" height="56.5"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="f.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="Oli-e0-Fid"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="2KI-qo-2hi"/>
                                                                 </connections>
                                                             </button>
-                                                            <button opaque="NO" tag="7" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0oy-ug-nEI">
+                                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Iq5-0m-jQf">
                                                                 <rect key="frame" x="329" y="0.0" width="55" height="56.5"/>
-                                                                <color key="tintColor" red="0.41585358979999998" green="0.34342461819999998" blue="0.44314804670000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                                <state key="normal" image="s.square" catalog="system">
-                                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="75" scale="large" weight="regular"/>
+                                                                <state key="normal">
+                                                                    <color key="titleColor" red="0.96130555870000001" green="0.48833741200000003" blue="0.41006830259999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 </state>
                                                                 <connections>
-                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="n3H-S9-ajy"/>
+                                                                    <action selector="dayOfWeekBtnTapped:" destination="JT5-Hw-5ms" eventType="touchUpInside" id="JlV-xm-JKZ"/>
                                                                 </connections>
                                                             </button>
                                                         </subviews>
@@ -809,11 +830,19 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="8hh-mh-Z9s" firstAttribute="top" secondItem="hrA-Lo-xl4" secondAttribute="top" id="1MJ-HM-T7e"/>
+                                                    <constraint firstItem="8hh-mh-Z9s" firstAttribute="centerY" secondItem="hrA-Lo-xl4" secondAttribute="centerY" id="1Vd-N9-oFK"/>
+                                                    <constraint firstItem="8hh-mh-Z9s" firstAttribute="leading" secondItem="gR7-Ar-kCL" secondAttribute="leading" constant="15" id="43Z-zU-uDj"/>
                                                     <constraint firstItem="qb5-uG-GZQ" firstAttribute="leading" secondItem="gR7-Ar-kCL" secondAttribute="leading" constant="20" id="5Ey-4p-adr"/>
+                                                    <constraint firstItem="8hh-mh-Z9s" firstAttribute="trailing" secondItem="hrA-Lo-xl4" secondAttribute="trailing" id="AJz-i4-mts"/>
                                                     <constraint firstItem="hrA-Lo-xl4" firstAttribute="top" secondItem="gR7-Ar-kCL" secondAttribute="top" constant="60" id="EdA-oP-Pcp"/>
+                                                    <constraint firstAttribute="bottom" secondItem="8hh-mh-Z9s" secondAttribute="bottom" constant="50" id="F8l-z5-EDq"/>
                                                     <constraint firstItem="qb5-uG-GZQ" firstAttribute="top" secondItem="gR7-Ar-kCL" secondAttribute="top" constant="8" id="dwD-gl-HyD"/>
                                                     <constraint firstAttribute="trailing" secondItem="hrA-Lo-xl4" secondAttribute="trailing" constant="15" id="e5A-ez-WO7"/>
                                                     <constraint firstItem="hrA-Lo-xl4" firstAttribute="leading" secondItem="gR7-Ar-kCL" secondAttribute="leading" constant="15" id="g93-6W-tOV"/>
+                                                    <constraint firstItem="8hh-mh-Z9s" firstAttribute="top" secondItem="qb5-uG-GZQ" secondAttribute="bottom" constant="28" id="iIK-Yo-87N"/>
+                                                    <constraint firstItem="8hh-mh-Z9s" firstAttribute="leading" secondItem="hrA-Lo-xl4" secondAttribute="leading" id="oj6-ON-GYu"/>
+                                                    <constraint firstAttribute="trailing" secondItem="8hh-mh-Z9s" secondAttribute="trailing" constant="15" id="pBh-WL-rQ4"/>
                                                     <constraint firstAttribute="bottom" secondItem="hrA-Lo-xl4" secondAttribute="bottom" constant="50" id="wSX-KU-IRp"/>
                                                 </constraints>
                                             </view>
@@ -952,17 +981,24 @@
                         <outlet property="addPhotoButton" destination="xBH-bA-kad" id="3Vd-lb-WVJ"/>
                         <outlet property="circularImage" destination="MdV-O7-tOk" id="GKn-jO-orq"/>
                         <outlet property="dosageTypeTxtField" destination="wUH-Vq-k52" id="snl-ia-bBg"/>
-                        <outlet property="fBtn" destination="glt-dj-XkH" id="G0A-1s-uGb"/>
-                        <outlet property="mBtn" destination="I0V-HH-LvB" id="e7m-Vq-ccm"/>
+                        <outlet property="fBtn" destination="1if-wZ-7fS" id="N8i-iO-gVT"/>
+                        <outlet property="fImageView" destination="p1O-oN-T2v" id="SpW-hN-uFI"/>
+                        <outlet property="mBtn" destination="lfv-Fz-6SD" id="jbn-wb-6jj"/>
+                        <outlet property="mImageView" destination="HfF-Ya-kpu" id="gw0-QV-wr6"/>
                         <outlet property="ndcNumberLbl" destination="QfB-EP-aU5" id="mPC-qD-mKu"/>
                         <outlet property="perscriptionNameTxtField" destination="BIx-KW-5He" id="U4w-Uf-AKJ"/>
-                        <outlet property="saBtn" destination="0oy-ug-nEI" id="Gfh-N8-aL0"/>
+                        <outlet property="saBtn" destination="kQH-we-ui4" id="cZV-Nv-MPQ"/>
+                        <outlet property="saturdayImgView" destination="hL7-bx-d35" id="SFE-ve-qZK"/>
                         <outlet property="saveBtn" destination="AQB-Cs-VAU" id="t5a-YR-Z5F"/>
-                        <outlet property="suBtn" destination="2ix-3g-5yN" id="lzg-0m-CcX"/>
-                        <outlet property="tBtn" destination="70l-Qi-sFI" id="jni-en-WrW"/>
-                        <outlet property="thBtn" destination="eoK-6e-VMA" id="OBt-aH-1z4"/>
+                        <outlet property="suBtn" destination="Iq5-0m-jQf" id="oH2-h5-xVB"/>
+                        <outlet property="suImageView" destination="olb-ee-cbu" id="wNT-Sq-0Ib"/>
+                        <outlet property="tBtn" destination="HwJ-gP-xwA" id="DdC-MN-oOO"/>
+                        <outlet property="tImageView" destination="NL4-38-F1S" id="YxI-RB-Sps"/>
+                        <outlet property="thBtn" destination="4Ui-fx-wgp" id="zq9-qe-gHe"/>
+                        <outlet property="thImageView" destination="7BK-v9-ldc" id="078-nx-adI"/>
                         <outlet property="timeofDayTxtField" destination="8mf-fO-aj1" id="YWf-iR-XJ8"/>
-                        <outlet property="wBtn" destination="hfJ-44-I1J" id="naz-ca-tY5"/>
+                        <outlet property="wBtn" destination="5Wg-DQ-rQ9" id="gLf-4M-lcU"/>
+                        <outlet property="wImageView" destination="fqf-0q-gOK" id="uSi-rC-gAc"/>
                         <segue destination="vQ2-SI-r1l" kind="unwind" identifier="saveUnwind" unwindAction="prepareForUnwindWithSegue:" id="8QF-h8-7Ef"/>
                     </connections>
                 </viewController>
@@ -1099,7 +1135,6 @@
         <image name="f.square" catalog="system" width="64" height="56"/>
         <image name="info.circle" catalog="system" width="64" height="60"/>
         <image name="m.square" catalog="system" width="64" height="56"/>
-        <image name="m.square.fill" catalog="system" width="64" height="56"/>
         <image name="magnifyingglass" catalog="system" width="64" height="56"/>
         <image name="pill" width="292" height="265"/>
         <image name="s.square" catalog="system" width="64" height="56"/>

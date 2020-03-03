@@ -34,6 +34,14 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var saBtn: UIButton! // tag value is 7
     @IBOutlet weak var suBtn: UIButton! // tag value is 1
     
+    @IBOutlet weak var mImageView: UIImageView!
+    @IBOutlet weak var tImageView: UIImageView!
+    @IBOutlet weak var wImageView: UIImageView!
+    @IBOutlet weak var thImageView: UIImageView!
+    @IBOutlet weak var fImageView: UIImageView!
+    @IBOutlet weak var saturdayImgView: UIImageView!
+    @IBOutlet weak var suImageView: UIImageView!
+    
     
     var pill: Pills?
     
@@ -173,38 +181,126 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
     }
     
-    @IBAction func dayOfWeekBtnTapped(_ sender: UIButton) {
-
-
+    func sendNotification(_ buttonTapped: UIButton) {
+        
         let center = UNUserNotificationCenter.current()
         center.requestAuthorization(options: [.badge, .alert, .sound]) { (granted, error) in
             if !granted {
                 print("Something went wrong")
             } else {
                 DispatchQueue.main.async {
-                    sender.setImage(UIImage(systemName: "\(String(describing: sender.titleLabel?.text?.first)).square.fill"), for: .normal)
-                    let dayOfWeek = (sender as UIButton).tag
-                    sender.isSelected.toggle()
-
-                         
-                 let content = UNMutableNotificationContent()
+                let dayOfWeek = (buttonTapped as UIButton).tag //
+                let content = UNMutableNotificationContent() //
+                    
+                    
 
                     content.title = "Time to take your medicane"
                     content.body = "Time to take your perscription: \(String(describing: self.perscriptionNameTxtField.text!)), you are scheduled to take \(String(describing: self.perscriptionNameTxtField.text!)))"
                     content.sound = UNNotificationSound.default
-                    let calendar = Calendar.current
-                    let timeComponents = calendar.dateComponents([.hour, .minute], from: self.picker1.date)
-                    var components = DateComponents()
+                    let calendar = Calendar.current //
+                    
+                    let timeComponents = calendar.dateComponents([.hour, .minute], from: self.picker1.date) //
+                    var components = DateComponents() //
                     components.weekday = dayOfWeek
 
               
-                    let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true)
+                    let trigger = UNCalendarNotificationTrigger(dateMatching: timeComponents, repeats: true) //
+                    
+                    
 
-                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+                    let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger) //
                     center.removeAllPendingNotificationRequests()
                     center.add(request)
                 }
             }
+        }
+    }
+    
+    
+    @IBAction func dayOfWeekBtnTapped(_ sender: UIButton) {
+        var buttonBackground: UIView
+        
+        sender.isSelected = !sender.isSelected
+        
+        switch sender {
+        case mBtn:
+            
+            buttonBackground = mImageView
+            
+            if sender.isSelected {
+                sendNotification(mBtn)
+                mImageView.image =  UIImage(systemName: "m.square.fill")
+            } else {
+                mImageView.image = UIImage(systemName: "m.square")
+            }
+            
+            
+        case tBtn:
+            buttonBackground = tImageView
+            
+            if sender.isSelected {
+                sendNotification(tBtn)
+                tImageView.image =  UIImage(systemName: "t.square.fill")
+            } else {
+                tImageView.image = UIImage(systemName: "t.square")
+            }
+            
+            
+        case wBtn:
+            buttonBackground = wImageView
+            
+            if sender.isSelected {
+                sendNotification(wBtn)
+                wImageView.image =  UIImage(systemName: "w.square.fill")
+            } else {
+                wImageView.image = UIImage(systemName: "w.square")
+            }
+            
+            
+        case thBtn:
+            buttonBackground = thImageView
+    
+            if sender.isSelected {
+                sendNotification(thBtn)
+                thImageView.image =  UIImage(systemName: "t.square.fill")
+            } else {
+                thImageView.image = UIImage(systemName: "t.square")
+            }
+            
+        case fBtn:
+            buttonBackground = fImageView
+            
+            if sender.isSelected {
+                sendNotification(fBtn)
+                fImageView.image =  UIImage(systemName: "f.square.fill")
+            } else {
+                fImageView.image = UIImage(systemName: "f.square")
+            }
+            
+            
+        case saBtn:
+            buttonBackground = saturdayImgView
+            
+            if sender.isSelected {
+                sendNotification(saBtn)
+                saturdayImgView.image =  UIImage(systemName: "s.square.fill")
+            } else {
+                saturdayImgView.image = UIImage(systemName: "s.square")
+            }
+            
+            
+        case suBtn:
+            buttonBackground = suImageView
+            
+            if sender.isSelected {
+                sendNotification(suBtn)
+                suImageView.image =  UIImage(systemName: "s.square.fill")
+            } else {
+                suImageView.image = UIImage(systemName: "s.square")
+            }
+            
+        default:
+            return
         }
     }
     
