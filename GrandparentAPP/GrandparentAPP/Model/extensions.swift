@@ -15,9 +15,7 @@ extension DateFormatter {
         formatter.dateFormat = "M/d/yy"
         return formatter
     }
-    
 }
-
 
 extension Date {
     
@@ -34,11 +32,10 @@ extension Date {
         let myCalendar = Calendar.current
         let weekday = myCalendar.component(.weekday, from: Date())
         let diff = dayOfWeek.rawValue - weekday
-        let mondayDate = myCalendar.date(byAdding: .weekday, value: diff, to: Date(), wrappingComponents: false)
-        // convert to string with DateFormatter.short
-        // convert back to date with DateFormatter.short
-        return mondayDate ?? Date()
+        let weekDates = myCalendar.date(byAdding: .weekday, value: diff, to: Date(), wrappingComponents: false)
+        return weekDates ?? Date()
     }
+    
     static var sunday: Date {
         return date(for: .sunday)
     }

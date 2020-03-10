@@ -102,12 +102,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
         
         picker1.addTarget(self, action: #selector(PillDetailViewController.datePickerValueChanged), for: UIControl.Event.valueChanged)
         
-       
-        
-        
-        
-        
-        
         if let pill = pill {
             ndcNumberLbl.text = pill.ndcNumber
             dosageTypeTxtField.text = pill.dosageType
@@ -392,11 +386,9 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             if let image = pill.image,
                 let newImageFromData = UIImage(data: image) {
                 circularImage.image = newImageFromData
-//                addPhotoButton.setTitle("", for: .normal)
-                addPhotoButton.setImage(newImageFromData, for: .normal)
+                addPhotoButton.setBackgroundImage(newImageFromData, for: .normal)
             } else {
-//                addPhotoButton.setTitle("Add Photo", for: .normal)
-                addPhotoButton.setImage(nil, for: .normal)
+                addPhotoButton.setBackgroundImage(nil, for: .normal)
             }
         }
     }
@@ -447,8 +439,6 @@ class PillDetailViewController: UIViewController, UIImagePickerControllerDelegat
             pill?.image = selectedImage.pngData()
             addPhotoButton.imageView?.image = selectedImage
             dismiss(animated: true) {
-//                self.updateView()
-                print("view updated")
             }
             
         }

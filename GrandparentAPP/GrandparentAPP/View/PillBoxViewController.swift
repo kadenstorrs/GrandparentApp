@@ -228,10 +228,12 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         
         if editingStyle == .delete {
             let pill = filteredPills[indexPath.row]
-            Stack.persistantContainer.viewContext.delete(pill)
-            filteredPills.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            if let selectedDay = selectedDay, let index = pill.days.firstIndex(of: selectedDay) {
+                pill.days.remove(at: index)
+            }
             Stack.saveContext()
+            filteredPills = filteredPills(pills: pills)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
             
             //TODO: we need to change stack.saveContext()
         }
@@ -258,7 +260,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
         
         let pill = filteredPills[indexPath.row]
         
-        var pillWasTakenOnSelectedDay = pill.dates.contains(selectedDay.date)
+        let pillWasTakenOnSelectedDay = pill.dates.contains(selectedDay.date)
         cell.update(with: pill, isSelected: pillWasTakenOnSelectedDay)
         cell.checkMarkButtonTapped = { isSelected in
             if isSelected {
@@ -271,7 +273,7 @@ class PillBoxViewController: UIViewController, UITableViewDataSource, UITableVie
                 }
             }
             PillsController.sharedController.save()
-            print("Check mark button was \(isSelected ? "Selected" : "Unselected") for pill \(pill.prescription!) on \(self.selectedDay!) ")
+//            print("Check mark button was \(isSelected ? "Selected" : "Unselected") for pill \(pill.prescription!) on \(self.selectedDay!) ")
         }
         
         cell.accessoryType = .disclosureIndicator
