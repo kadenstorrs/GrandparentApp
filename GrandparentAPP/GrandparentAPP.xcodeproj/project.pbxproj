@@ -359,6 +359,7 @@
 		3F39611D23CE157B008938A0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = GrandparentAPP/Info.plist;
@@ -369,13 +370,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com-kadenstorrs.GrandparentAPP";
 				PRODUCT_NAME = GrandparentApp;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		3F39611E23CE157B008938A0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = T3ZR4UN5F8;
 				INFOPLIST_FILE = GrandparentAPP/Info.plist;
@@ -386,7 +388,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.Ella.GrandparentAPP;
 				PRODUCT_NAME = GrandparentApp;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
